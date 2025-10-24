@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Автомобили в наличии — Сравнение</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        customGray: '#1a1a1a',
+                        lightGray: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="font-sans text-[#01101B]">
+
+
+    <header class="border-b border-gray-200 bg-white" style="box-shadow: 0 4px 10px rgba(40, 38, 36, 0.1);">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Логотип и название -->
+                <a href="./" class="flex-shrink-0 flex items-center min-w-0">
+                    <!-- Логотип: h-6 на мобильных, h-8 на sm+ -->
+                    <img src="../assets/common/Bestune.svg" alt="Bestune" class="h-6 sm:h-8 w-auto flex-shrink-0" />
+
+                    <!-- Текст: text-sm на мобильных, text-base на sm+; 3 пробела через &nbsp; -->
+                    <span
+                        class="ml-2 sm:ml-3 font-semibold text-gray-700 text-[12px] sm:text-base whitespace-nowrap overflow-hidden text-ellipsis">
+                        &nbsp;&nbsp;НЕЗАВИСИМОСТЬ
+                    </span>
+                </a>
+
+                <!-- Десктоп: меню + телефон -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <nav class="flex items-center space-x-6">
+                        <p data-open-modal="models-modal"
+                            class="text-gray-700 cursor-pointer hover:text-gray-900 text-sm font-medium whitespace-nowrap">
+                            Модели</p>
+                        <a href="./cars.html"
+                            class="text-gray-700 hover:text-gray-900 text-sm font-medium whitespace-nowrap">Авто в
+                            наличии</a>
+                        <a href="./loan.html"
+                            class="text-gray-700 hover:text-gray-900 text-sm font-medium whitespace-nowrap">Кредит</a>
+                        <a href="./tradein.html"
+                            class="text-gray-700 hover:text-gray-900 text-sm font-medium whitespace-nowrap">Trade-in</a>
+                        <a href="./stocks.html"
+                            class="text-gray-700 hover:text-gray-900 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
+                        <a href="./contacts.html"
+                            class="text-gray-700 hover:text-gray-900 text-sm font-medium whitespace-nowrap">Контакты</a>
+                    </nav>
+
+
+                </div>
+
+                <!-- Мобильное меню: только бургер (без телефона) -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <!-- Телефон (только на десктопе) -->
+                    <a href="tel:+78005553535" class="flex-shrink-0">
+                        <img src="../assets/common/Vector (10).svg" alt="Позвонить" class="h-5 w-auto" />
+                    </a>
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-md text-gray-700 hover:text-gray-900 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden absolute top-16 left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-50">
+            <div id="mobile-main-menu" class="px-4 pt-2 pb-4 space-y-1">
+                <p data-open-mobile-models
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 cursor-pointer flex items-center justify-between">
+                    Модели
+                    <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </p>
+                <a href="./cars.html"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Авто в наличии</a>
+                <a href="./loan.html"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Кредит</a>
+                <a href="./tradein.html"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Trade-in</a>
+                <a href="./stocks.html"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Спецпредложения</a>
+                <a href="./contacts.html"
+                    class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900">Контакты</a>
+            </div>
+
+            <!-- Меню моделей -->
+            <div id="mobile-models-menu" class="hidden px-4 pt-2 pb-3">
+                <button id="mobile-models-back"
+                    class="flex items-center px-3 py-2 text-base font-medium text-gray-700 hover:text-gray-900 mb-3 cursor-pointer">
+                    <svg class="w-4 h-4 mr-1.5 transform rotate-180" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Назад
+                </button>
+
+                <div class="space-y-1">
+                    <!-- (оставляем как есть — размеры карточек моделей не менялись) -->
+                    <a href="#"
+                        class="flex items-center px-3 py-2.5 hover:bg-gray-50 transition border-b border-gray-100">
+                        <img src="../assets/models/Новый T90.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-gray-900 text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-500">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                    <!-- остальные модели... -->
+                    <a href="#"
+                        class="flex items-center px-3 py-2.5 hover:bg-gray-50 transition border-b border-gray-100">
+                        <img src="../assets/models/Новый B70.png" alt="Новый В70" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-gray-900 text-sm">Новый В70</div>
+                            <div class="text-[10px] text-gray-500">от 1 849 990 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#"
+                        class="flex items-center px-3 py-2.5 hover:bg-gray-50 transition border-b border-gray-100">
+                        <img src="../assets/models/T55.png" alt="T55" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-gray-900 text-sm">T55</div>
+                            <div class="text-[10px] text-gray-500">от 1 561 000 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#"
+                        class="flex items-center px-3 py-2.5 hover:bg-gray-50 transition border-b border-gray-100">
+                        <img src="../assets/models/B70.png" alt="B70" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-gray-900 text-sm">B70</div>
+                            <div class="text-[10px] text-gray-500">от 1 724 000 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-50 transition">
+                        <img src="../assets/models/T77.png" alt="T77" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-gray-900 text-sm">T77</div>
+                            <div class="text-[10px] text-gray-500">от 1 924 000 ₽*</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Dropdown для "Модели" -->
+    <div id="models-dropdown"
+        class="absolute left-0 top-14 right-0 mt-2 bg-white shadow-lg rounded-md hidden z-50 border border-gray-200">
+        <div class="py-2">
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый T90.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый Т90</div>
+                    <div class="text-xs text-gray-500">от 2 129 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый B70.png" alt="Новый В70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый В70</div>
+                    <div class="text-xs text-gray-500">от 1 849 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T55.png" alt="T55" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T55</div>
+                    <div class="text-xs text-gray-500">от 1 561 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/B70.png" alt="B70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">B70</div>
+                    <div class="text-xs text-gray-500">от 1 724 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T77.png" alt="T77" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T77</div>
+                    <div class="text-xs text-gray-500">от 1 924 000 ₽*</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <main class="container mx-auto px-4 py-8">
+
+        <!-- Заголовок -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl font-bold mb-2">Автомобили в наличии</h1>
+            <h2 class="text-xl text-gray-700">Сравнение</h2>
+        </div>
+
+        <!-- Назад к списку -->
+        <div class="mb-6 flex items-center text-sm text-blue-600 cursor-pointer">
+            <i class="fas fa-arrow-left mr-2"></i>
+            <span>Назад к списку</span>
+        </div>
+
+        <!-- Карточки автомобилей -->
+        <div data-cars-comparison class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-10 sticky top-0 bg-white">
+
+        </div>
+
+        <div class="space-y-2" id="comparison-table">
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Основное
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Двигатель -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Двигатель
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Трансмиссия -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Трансмиссия
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Экстерьер -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Экстерьер
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Интерьер -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Интерьер
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Безопасность -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Безопасность
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Комфорт -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Комфорт
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Мультимедиа -->
+            <div class="border-t border-gray-300">
+                <button class="w-full flex justify-between items-center py-4 text-left font-medium"
+                    onclick="toggleAccordion(this)">
+                    Мультимедиа
+                    <i class="fas fa-plus text-sm"></i>
+                </button>
+                <div class="accordion-content hidden p-4 mt-2">
+                    <div class="grid">
+                        <!-- Данные будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-[#282624] text-white pt-12 pb-8">
+        <div class="w-full px-6 md:px-12 lg:px-24">
+            <div class="mb-10 flex items-center space-x-2">
+                <img src="../assets/common/Bestune (1).svg" alt="Bestune" class="h-8 w-auto flex-shrink-0" />
+                <span class="text-lg font-medium">× НЕЗАВИСИМОСТЬ</span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Модели</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">T55</a></li>
+                        <li><a href="#" class="hover:text-gray-300">B70</a></li>
+                        <li><a href="#" class="hover:text-gray-300">T77</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Новый T90</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Новый B70</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Покупателям</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Модели</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Кредит</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Trade-in</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Спецпредложения</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mb-8 text-xs leading-relaxed">
+                Производитель сохраняет за собой исключительное право в любое время вносить дополнения, изменения,
+                обновления в информацию о параметрах продукта, конфигурации, материалы, цвета и в другую информацию о
+                транспортном средстве без предварительного уведомления. Приобретение любой продукции бренда BESTUNE
+                осуществляется в соответствии с условиями индивидуального договора купли-продажи. Представленное
+                изображение, цвет, технические характеристики и комплектация автомобилей могут отличаться от
+                реализуемого. Упоминаемое оборудование может быть опциональным. Для получения подробной информации об
+                актуальных ценах на продукцию BESTUNE и наличии автомобилей обращайтесь к официальным дилерам. Не
+                является публичной офертой.
+            </div>
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs space-y-4 sm:space-y-0">
+                <a href="#" class="hover:text-gray-300">Политика конфиденциальности</a>
+                <a href="#" class="hover:text-gray-300">Контакты</a>
+            </div>
+        </div>
+    </footer>
+    <script src="../scripts/components/modals/dialog/dropModelsDown.js"></script>
+
+    <script>
+        function openCarDetails(carId) {
+            console.log('Открыть детали автомобиля:', carId);
+        }
+
+        function toggleAccordion(button) {
+            const icon = button.querySelector('i');
+            const content = button.nextElementSibling;
+
+            if (content.classList.contains('hidden')) {
+                icon.classList.replace('fa-plus', 'fa-minus');
+                content.classList.remove('hidden');
+            } else {
+                icon.classList.replace('fa-minus', 'fa-plus');
+                content.classList.add('hidden');
+            }
+        }
+
+        document.getElementById('mobile-menu-button').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+
+
+
+    <script src="../scripts/components/comparison.js"></script>
+
+
+</body>
+
+</html>
+
+
+
+

@@ -211,60 +211,98 @@
 
 
     <main class="pt-16">
+        <section class="py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-center mb-10 text-[#B1B2B4] font-regular
+           text-4xl sm:text-5xl md:text-6xl lg:text-[52px]
+           md:mb-12 lg:mb-[42px]">Спецпредложения</h2>
 
-        <div class="mx-auto container pt-6 md:pt-12">
-            <h2 class="text-2xl md:text-[48px] text-center font-light text-[#B1B2B4] md:mb-8">Контакты</h2>
-        </div>
+                <!-- Три колонки -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <section class="container mx-auto space-y-[40px] px-4 sm:px-6 md:px-8 py-10">
-            <div class="flex flex-col md:flex-row gap-8">
-                <div class="md:w-1/3 space-y-6">
-
-
-                    <!-- Часы работы -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm">
-                        <div>
-                            <h3 class="font-semibold text-gray-800">Часы работы:</h3>
-                            <p class="text-gray-600 mt-1">Пн-вс, 9:00–21:00</p>
+                    <!-- Блок 1: Первоначальный взнос -->
+                    <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
+                        <div class="w-full min-h-[277px]">
+                            <img src="../assets/auto/SpecialOffers/08a9395c28a0cfe4b1dd74a97151fc4917980fca (1).png"
+                                alt="Solaris у дилера" class="w-full h-[277px] rounded-[12px] object-cover">
                         </div>
-                        <img src="../assets/contacts/ic_schedule_48px (2).svg" alt="Часы">
-                    </div>
-
-                    <!-- Телефон — кликабельный -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm">
-                        <div>
-                            <h3 class="font-semibold text-gray-800">Телефон:</h3>
-                            <a href="tel:89999999999" class="text-gray-600 mt-1">
-                                 +7 (499) 229-89-99
+                        <div class="py-6 flex-grow">
+                            <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Первоначальный взнос — от 0%
+                            </h3>
+                            <p class="text-sm text-[#555555] mb-6">
+                                Программа позволяет приобрести автомобили Solaris без первоначального взноса. Доступна
+                                на модели KR, KRX, HC и HS. Минимум затрат — максимум возможностей!
+                            </p>
+                        </div>
+                        <div class=" pb-6">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                                получить
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
                             </a>
                         </div>
-                        <img src="../assets/contacts/ic_phone_in_talk_48px (2).svg" alt="Телефон">
                     </div>
 
-                    <!-- Адрес -->
-                    <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg shadow-sm">
-                        <div>
-                            <h3 class="font-semibold text-gray-800">Адрес</h3>
-                            <p class="text-gray-600 mt-1"> г. Москва, Береговой проезд, 4/6, стр. 3</p>
+                    <!-- Блок 2: Trade-in -->
+                    <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
+                        <div class="w-full min-h-[277px]">
+                            <img src="../assets/auto/SpecialOffers/71a90dc8fbd5ad863484eecc53407456f8810210.png"
+                                alt="Три Solaris" class="w-full h-[277px] rounded-[12px] object-cover">
                         </div>
-                        <img src="../assets/contacts/ic_place_48px (1).svg" alt="Метка">
+                        <div class="py-6 flex-grow">
+                            <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Выгода до 210 000 ₽ за Trade-in
+                            </h3>
+                            <p class="text-sm text-[#555555] mb-6">
+                                Обменяйте свой автомобиль на новый Solaris и получите дополнительную выгоду до 210 000
+                                ₽. Предложение действует на модели KR, KRX, HC и HS
+                            </p>
+                        </div>
+                        <div class="pb-6">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                                получить
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                </div>
 
-                <!-- Карта — без тени, адаптивная, без skeleton -->
-                <div class="w-full md:flex-1 rounded-xl overflow-hidden">
-                    <div class="w-full h-[50vh] md:h-[500px] lg:h-[400px]">
-                        <iframe
-                            src="https://yandex.ru/map-widget/v1/?um=constructor%3A29abbbf054124cc69db31f2ac7c2cdfbb031d022af9fff6b7eb280d67ff71387&amp;source=constructor"
-                            width="100%" height="100%" frameborder="0" style="border:0; display:block;" allowfullscreen
-                            loading="lazy">
-                        </iframe>
+                    <!-- Блок 3: Госпрограмма -->
+                    <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
+                        <div class="w-full min-h-[277px]">
+                            <img src="../assets/auto/SpecialOffers/b4acd114bb2d3d5dd8ee3edb537c7251f56175dc (1).png"
+                                alt="Solaris с логотипом РИО" class="w-full h-[277px] rounded-[12px] object-cover">
+                        </div>
+                        <div class="py-6 flex-grow">
+                            <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Выгода до 25% по госпрограмме
+                                автокредитования</h3>
+                            <p class="text-sm text-[#555555] mb-6">
+                                Приобретайте Solaris с выгодой до 25% благодаря участию в госпрограмме автокредитования.
+                            </p>
+                        </div>
+                        <div class="pb-6">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                                получить
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
+                                    viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M9 5l7 7-7 7" />
+                                </svg>
+                            </a>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
-
-
 
         <section
             class="relative bg-cover bg-center bg-right min-h-[500px] md:min-h-[600px] lg:min-h-[829px] flex flex-col justify-center px-5 sm:px-10 md:px-16 lg:px-20 text-white"
@@ -378,6 +416,20 @@
     <script src="../scripts/components/modals/widget/feedback.js"></script>
     <script src="../scripts/components/modals/dialog/FortuneWheel.js"></script>
     <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script>
+
+    <style>
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
 </body>
 
 </html>
