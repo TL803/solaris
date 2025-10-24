@@ -1,0 +1,68 @@
+.custom-checkbox-square {
+  position: relative;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.custom-checkbox-square input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent; /* Прозрачный по умолчанию */
+  border: 2px solid #ccc;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: transparent;
+  font-size: 1.25rem;
+  font-weight: bold;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* При наведении — слегка подсвечиваем */
+.custom-checkbox-square:hover .checkmark {
+  border-color: #999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Когда отмечен — делаем белый фон и показываем галочку */
+.custom-checkbox-square input:checked ~ .checkmark {
+  background-color: white;
+  border-color: #3366BD;
+  color: black;
+  box-shadow: 0 2px 6px rgba(51, 102, 189, 0.2);
+}
+
+/* Анимация появления галочки */
+.custom-checkbox-square input:checked ~ .checkmark::before {
+  color: black;
+  font-size: 1.25rem;
+  font-weight: bold;
+  animation: fadeInCheck 0.2s ease-out;
+}
+
+@keyframes fadeInCheck {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,74 @@
+.filter-content {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        max-height 0.35s cubic-bezier(0.33, 0, 0.22, 1),
+        opacity 0.3s ease 0.05s,
+        visibility 0.3s ease 0.05s;
+}
+
+.filter-content--open {
+    opacity: 1;
+    visibility: visible;
+    max-height: 5000px; /* Увеличиваем для надежности */
+}
+/* УБРАТЬ этот блок - он переопределяет visibility */
+/* .filter-content {
+    visibility: visible !important;
+} */
+
+/* Стили для sidebar */
+#sidebar {
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+    transform: translateX(0);
+}
+
+#sidebar.sidebar-hidden {
+    transform: translateX(-100%);
+    transition: transform 0.3s ease, visibility 0s ease 0.3s;
+    visibility: hidden;
+}
+
+/* Стили для основной области с карточками */
+.flex-1 {
+    transition: margin-left 0.3s ease;
+    margin-left: 0;
+}
+
+.flex-1.sidebar-hidden {
+    margin-left: -400px;
+}
+
+/* Для плавного изменения сетки карточек */
+[data-avaliable-cars-container] {
+    transition: grid-template-columns 0.3s ease;
+}
+
+/* Адаптация для мобильных */
+@media (max-width: 1024px) {
+    #sidebar {
+        position: absolute;
+        top: 215px;
+        left: 0;
+        z-index: 40;
+        height: calc(100vh - 80px);
+        transform: translateX(-100%);
+        visibility: hidden;
+    }
+    
+    #sidebar:not(.sidebar-hidden) {
+        transform: translateX(0);
+        visibility: visible;
+    }
+    
+    .flex-1 {
+        margin-left: 0 !important;
+    }
+    
+    .flex-1.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+}
