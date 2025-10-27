@@ -35,16 +35,17 @@
 
     <style>
         /* Стили для select-ов как на макете */
-        
+
         .select-custom {
             @apply w-full p-3 bg-white text-gray-500 border border-gray-200 rounded-lg text-sm font-normal appearance-none focus: outline-none focus: ring-2 focus: ring-[#3366BD] focus: border-transparent;
         }
+
         /* Кастомная стрелка вниз (заменяет стандартную) */
-        
+
         .select-custom::-ms-expand {
             display: none;
         }
-        
+
         .select-custom::after {
             content: '▼';
             position: absolute;
@@ -55,21 +56,24 @@
             color: #3366BD;
             font-size: 14px;
         }
+
         /* Для Firefox — нужно отдельно скрыть стандартную стрелку */
-        
+
         .select-custom:-moz-focusring {
             color: transparent;
             text-shadow: 0 0 0 #000;
         }
+
         /* Обёртка для позиционирования стрелки */
-        
+
         .select-wrapper {
             position: relative;
             display: inline-block;
             width: 100%;
         }
+
         /* Для Safari и Chrome — кастомная стрелка через псевдоэлемент */
-        
+
         .select-custom {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -84,13 +88,15 @@
 <body class="font-sans bg-[#FFFFFF] text-[#01101B]">
 
 
-    <header class="bg-gradient-to-r w-full from-[#6A8DBA] fixed top-0 left-0 to-[#2C3E50] text-white z-[100]" style="box-shadow: none;">
+    <header class="bg-gradient-to-r w-full from-[#6A8DBA] fixed top-0 left-0 to-[#2C3E50] text-white z-[100]"
+        style="box-shadow: none;">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between h-16">
                 <!-- Логотип и название -->
                 <a href="./" class="flex-shrink-0 flex items-center min-w-0">
                     <!-- Логотип -->
-                    <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8 w-auto flex-shrink-0" />
+                    <img src="../assets/common/Clip path group.svg" alt="SOLARIS"
+                        class="h-3 sm:h-6 md:h-8 w-auto flex-shrink-0" />
 
                     <!-- Разделитель -->
                     <span class="mx-3 text-white">|</span>
@@ -104,22 +110,28 @@
                 <!-- Десктоп: меню -->
                 <div class="hidden lg:flex items-center space-x-6">
                     <nav class="flex items-center space-x-6">
-                        <p data-open-modal="models-modal" class="cursor-pointer hover:text-gray-200 text-sm font-medium whitespace-nowrap">
+                        <p data-open-modal="models-modal"
+                            class="cursor-pointer hover:text-gray-200 text-sm font-medium whitespace-nowrap">
                             Модели
                         </p>
                         <a href="./cars.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Авто в
                             наличии</a>
-                        <a href="./loan.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Кредит</a>
-                        <a href="./tradein.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Trade-in</a>
-                        <a href="./stocks.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
-                        <a href="./contacts.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Контакты</a>
+                        <a href="./loan.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Кредит</a>
+                        <a href="./tradein.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Trade-in</a>
+                        <a href="./stocks.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
+                        <a href="./contacts.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Контакты</a>
                     </nav>
                 </div>
 
                 <!-- Мобильное меню: только бургер -->
                 <div class="lg:hidden flex items-center space-x-4">
                     <img src="../assets/mobile/Vector (24).svg" alt="Vector (24).svg" />
-                    <button id="mobile-menu-button" class="p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
                         <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -131,9 +143,11 @@
         </div>
 
         <!-- Мобильное меню -->
-        <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg z-50">
+        <div id="mobile-menu"
+            class="hidden lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg z-50">
             <div id="mobile-main-menu" class="px-4 pt-2 pb-4 space-y-1">
-                <p data-open-mobile-models class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200 cursor-pointer flex items-center justify-between">
+                <p data-open-mobile-models
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200 cursor-pointer flex items-center justify-between">
                     Модели
                     <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -141,15 +155,20 @@
                 </p>
                 <a href="./cars.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Авто
                     в наличии</a>
-                <a href="./loan.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Кредит</a>
-                <a href="./tradein.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Trade-in</a>
-                <a href="./stocks.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Спецпредложения</a>
-                <a href="./contacts.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Контакты</a>
+                <a href="./loan.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Кредит</a>
+                <a href="./tradein.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Trade-in</a>
+                <a href="./stocks.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Спецпредложения</a>
+                <a href="./contacts.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Контакты</a>
             </div>
 
             <!-- Меню моделей -->
             <div id="mobile-models-menu" class="hidden px-4 pt-2 pb-3">
-                <button id="mobile-models-back" class="flex items-center px-3 py-2 text-base font-medium text-white hover:text-gray-200 mb-3 cursor-pointer">
+                <button id="mobile-models-back"
+                    class="flex items-center px-3 py-2 text-base font-medium text-white hover:text-gray-200 mb-3 cursor-pointer">
                     <svg class="w-4 h-4 mr-1.5 transform rotate-180" fill="none" stroke="currentColor"
                         viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -177,7 +196,8 @@
         </div>
 
 
-        <div id="models-dropdown" class="absolute left-0 top-14 right-0 mt-2 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg rounded-md hidden z-50 ">
+        <div id="models-dropdown"
+            class="absolute left-0 top-14 right-0 mt-2 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg rounded-md hidden z-50 ">
             <div class="py-2">
                 <a href="#" class="flex justify-center items-center px-4 py-3 transition">
                     <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-12 w-auto mr-3">
@@ -196,169 +216,187 @@
 
 
     <main class="pt-16">
+
         <section class="p-6 text-white">
             <div class="container mx-auto space-y-6">
-        
                 <!-- Заголовок -->
-                <h1 class="text-center mb-8 text-[#B1B2B4] font-normal text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
-                    КРЕДИТ
+                <h1
+                    class="text-center mb-8 text-[#B1B2B4] font-regular text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
+                    Рассчитать кредит
                 </h1>
-        
+
                 <!-- Основной контейнер: 2 колонки -->
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:min-h-[500px]">
-        
-                    <!-- ЛЕВАЯ КОЛОНКА: ФОРМА РАСЧЁТА -->
-                    <div class="bg-[#F5F5F5] rounded-xl p-6 space-y-6 flex flex-col">
-        
-                        <!-- Шаг 1: Выберите авто -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- ЛЕВАЯ КОЛОНКА -->
+                    <div class="bg-[#E9E9E980] rounded-xl p-6 space-y-6 flex flex-col">
+                        <!-- Шаг 1: Выберите авто — ВСЕГДА ВИДЕН -->
                         <div class="space-y-4">
-                            <h2 class="text-lg font-medium text-[#282624]">Выберите авто</h2>
-                            <p class="text-sm text-[#282624]">Для расчета условий по автокредиту выберите интересующий Вас автомобиль</p>
-        
-                            <!-- Выбор комплектации и модели -->
+                            <h2 class="text-[32px] font-medium text-[#282624]">Выберите авто</h2>
+                            <p class="text-[16px] text-[#282624]">Для расчета условий по автокредиту выберите модель и
+                                комплектацию</p>
+
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <select data-select-model data-sync="car-select" class="flex-1 p-2 bg-white text-black h-[46px] rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Выберите комплектацию</option>
-                                    <option value="solaris-hc">Solaris HC</option>
-                                </select>
-        
-                                <select data-select-trim data-sync="car-select" class="flex-1 p-2 bg-white text-black h-[46px] rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+                                <select data-select-model
+                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
                                     <option value="" disabled selected>Выберите модель</option>
-                                    <option value="solaris">Hyundai Solaris</option>
+                                    <option value="T77">FAW T77</option>
+                                    <option value="T90">FAW T90</option>
+                                </select>
+
+                                <select data-select-trim
+                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer"
+                                    disabled>
+                                    <option value="" disabled selected>Сначала выберите модель</option>
                                 </select>
                             </div>
-                        </div>
-        
-                        <!-- Шаг 2: Первоначальный взнос -->
-                        <div class="space-y-4">
-                            <h2 class="text-lg font-medium text-[#282624]">Первый взнос</h2>
-                            <div class="flex items-center gap-2">
-                                <span id="downPaymentAmountDesktop" class="text-xl font-bold text-[#282624]">0 ₽</span>
-                                <span id="downPaymentPercentDesktop" class="text-xl text-[#282624]">(49%)</span>
-                            </div>
-        
-                            <div class="relative h-10">
-                                <input type="range" min="0" max="70" value="50" step="10" id="downPaymentSliderDesktop" class="w-full h-2 bg-[#E0E0E0] rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#3366BD] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white">
-                                <div id="downPaymentTrack" class="absolute top-1/2 -translate-y-1/2 left-0 h-2 bg-[#3366BD] rounded-full" style="width: 50%;"></div>
-                            </div>
-        
-                            <div class="flex justify-between text-xs text-gray-500 mt-1">
-                                <span>10%</span>
-                                <span>20%</span>
-                                <span>30%</span>
-                                <span>40%</span>
-                                <span>50%</span>
-                                <span>60%</span>
-                                <span>70%</span>
+
+                            <div class="mt-4 flex items-center gap-3 md:gap-6">
+                                <label class="block text-sm text-[#282624] mb-1">Стоимость автомобиля:</label>
+                                <span id="carPriceDisplay" class="text-lg font-bold text-[#3366BD]">—</span>
                             </div>
                         </div>
-        
-                        <!-- Шаг 3: Срок кредита -->
-                        <div class="space-y-4">
-                            <h2 class="text-lg font-medium text-[#282624]">Срок кредита</h2>
-                            <div class="flex items-center gap-2">
-                                <span id="loanTermYearsDesktop" class="text-xl font-bold text-[#282624]">5 лет</span>
+
+                        <div id="conditionalForm" class="hidden space-y-6">
+                            <div class="space-y-4">
+                                <h2 class="text-lg font-medium text-[#282624]">Первоначальный взнос</h2>
+                                <div class="flex items-center gap-2">
+                                    <span id="downPaymentAmountDesktop" class="text-xl font-bold text-[#282624]">0
+                                        ₽</span>
+                                    <span id="downPaymentPercentDesktop" class="text-xl text-[#282624]">(0%)</span>
+                                </div>
+
+                                <div class="relative h-10">
+                                    <input type="range" min="0" max="90" value="0" step="10"
+                                        id="downPaymentSliderDesktop"
+                                        class="custom-slider w-full bg-white border border-white/40">
+                                    <div id="downPaymentTrack" class="slider-track" style="width: 0%;"></div>
+                                </div>
+
+                                <div class="flex justify-between text-[12px] sm:text-xs text-gray-400 sm:mt-1">
+                                    <span>0%</span>
+                                    <span>10%</span>
+                                    <span>20%</span>
+                                    <span>30%</span>
+                                    <span>40%</span>
+                                    <span>50%</span>
+                                    <span>60%</span>
+                                    <span>70%</span>
+                                    <span>80%</span>
+                                    <span>90%</span>
+                                </div>
                             </div>
-        
-                            <div class="relative h-10">
-                                <input type="range" min="0.5" max="7" value="5" step="0.5" id="loanTermSliderDesktop" class="w-full h-2 bg-[#E0E0E0] rounded-full appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:h-6 [&::-webkit-slider-thumb]:w-6 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-[#3366BD] [&::-webkit-slider-thumb]:border-2 [&::-webkit-slider-thumb]:border-white">
-                                <div id="loanTermTrack" class="absolute top-1/2 -translate-y-1/2 left-0 h-2 bg-[#3366BD] rounded-full" style="width: 71.4%;"></div>
+
+                            <!-- Срок кредита -->
+                            <div class="space-y-4">
+                                <h2 class="text-lg font-medium text-[#282624]">Срок кредита</h2>
+                                <div class="flex items-center gap-2">
+                                    <span id="loanTermYearsDesktop" class="text-xl font-bold text-[#282624]">6
+                                        мес.</span>
+                                </div>
+
+                                <div class="relative h-10">
+                                    <input type="range" min="0.5" max="7" value="0.5" step="0.5"
+                                        id="loanTermSliderDesktop"
+                                        class="custom-slider w-full bg-white border border-white/40">
+                                    <div id="loanTermTrack" class="slider-track" style="width: 0%;"></div>
+                                </div>
+
+                                <div class="flex justify-between mt-4">
+                                    <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm"
+                                        data-term="0.5">6 мес.</button>
+                                    <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm"
+                                        data-term="7">7 лет</button>
+                                </div>
                             </div>
-        
-                            <div class="flex justify-between mt-4 gap-2">
-                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="0.5">6 мес.</button>
-                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="7">96 мес.</button>
-                            </div>
-                        </div>
-        
-                        <!-- Введите ваши контакты -->
-                        <div class="space-y-4">
-                            <h2 class="text-lg font-medium text-[#282624]">Введите ваши контакты</h2>
-        
-                            <input type="text" placeholder="ФИО" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        
-                            <input type="text" placeholder="Телефон" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
-        
-                            <div class="flex items-start space-x-3">
-                                <label class="custom-checkbox-square relative">
-                                    <input type="checkbox" id="myCheckbox" data-validate="required" class="peer absolute opacity-0 cursor-pointer" checked />
-                                    <span class="checkmark block w-5 h-5 border border-gray-300 rounded peer-checked:bg-[#3366BD] peer-checked:border-[#3366BD] transition-colors duration-200">
-                                        <svg class="hidden peer-checked:block w-full h-full text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                                        </svg>
+
+                            <!-- Контакты -->
+                            <form data-car-form class="space-y-4">
+                                <h2 class="text-lg font-medium text-[#282624]">Введите ваши контакты</h2>
+                                <input type="text" placeholder="ФИО" data-validate="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                                <input type="text" placeholder="Телефон" data-validate="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+
+                                <div class="flex items-center space-x-3">
+                                    <label class="custom-checkbox-square">
+                                        <input type="checkbox" data-validate="required" />
+                                        <span class="checkmark">✓</span>
+                                    </label>
+                                    <span class="text-sm text-gray-300 leading-relaxed">
+                                        Согласен с <a href="./privacypolicy.html"
+                                            class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки
+                                            персональных данных</a>
                                     </span>
-                                </label>
-                                <span class="text-sm text-gray-500 leading-relaxed">
-                                    Согласен с <a href="./privacypolicy.html" class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки персональных данных</a>
-                                </span>
-                            </div>
+                                </div>
+
+                                <button type="submit"
+                                    class="w-full py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-semibold rounded-lg hover:from-[#1a2d4a] hover:to-[#3a7dcf] transition flex items-center justify-center gap-2">
+                                    Получить предложение →
+                                </button>
+                            </form>
                         </div>
-        
                     </div>
-        
-                    <!-- ПРАВАЯ КОЛОНКА: ЕДИНАЯ КАРТОЧКА -->
+
                     <div class="flex flex-col lg:h-full">
-                        <div id="offerCard" class="bg-[#F5F5F5] rounded-xl p-6 space-y-2 sm:space-y-6 flex flex-col lg:flex-grow lg:min-h-0">
-        
-                            <!-- Изображение -->
-                            <div class="flex justify-center">
-                                <img src="../assets/auto/Rectangle 244.png" alt="Solaris HC" class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay">
+                        <div class="bg-[#E9E9E980] rounded-xl p-6 flex flex-col lg:flex-grow lg:min-h-0">
+                            <div class="flex justify-center mb-4">
+                                <img src="../assets/auto/Rectangle 244.png" alt="Выберите автомобиль"
+                                    class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay" />
                             </div>
-        
-                            <h2 class="text-[24px] font-semibold text-[#282624]">Solaris HC</h2>
-                            <p class="text-sm text-[#282624]">2.0(149,6 л.с.) 4WD</p>
-        
-                            <!-- Цвета -->
-                            <div class="flex space-x-2 mt-4">
-                                <div class="w-6 h-6 rounded-full bg-black"></div>
-                                <div class="w-6 h-6 rounded-full bg-orange-500"></div>
-                                <div class="w-6 h-6 rounded-full bg-amber-800"></div>
-                                <div class="w-6 h-6 rounded-full bg-red-600"></div>
-                                <div class="w-6 h-6 rounded-full bg-blue-800"></div>
-                            </div>
-        
-                            <!-- Стоимость -->
-                            <div class="mt-4">
-                                <div class="text-sm text-[#282624]">Стоимость</div>
-                                <div class="text-2xl font-bold text-[#282624]">2 448 000 ₽</div>
-                                <div class="text-lg font-bold text-[#3A7BC0]">2 036 000 ₽</div>
-                                <div class="text-sm text-[#282624]">Платеж от 11 444 ₽/месяц</div>
-                            </div>
-        
-                            <!-- Наше предложение -->
-                            <div class="mt-6">
-                                <h3 class="text-sm font-medium text-[#282624]">Наше предложение</h3>
-                                <div class="grid grid-cols-2 gap-4 mt-2 text-sm">
-                                    <div>
-                                        <div class="text-[#282624]">Сумма кредита</div>
-                                        <div class="text-[#3A7BC0] font-bold">0 ₽</div>
+
+                            <div id="conditionalOffer" class="hidden space-y-6 pt-4">
+                                <div>
+                                    <h2 class="text-[28px] sm:text-[32px] font-bold text-[#282624]" id="carModelTitle">—
+                                    </h2>
+                                    <p class="text-sm sm:text-base text-[#282624] mt-1" id="carSpecs">—</p>
+                                </div>
+
+                                <div id="colors-container" class="flex space-x-2 mt-4"></div>
+
+                                <div class="mt-6">
+                                    <div class="text-sm text-[#282624]">Стоимость</div>
+                                    <div class="text-2xl sm:text-3xl font-bold text-[#282624] line-through"
+                                        id="originalPrice">—</div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-[#3A7BC0] mt-1"
+                                        id="finalPrice">—</div>
+                                    <div class="text-sm sm:text-base text-[#282624] mt-1">
+                                        Платеж от <span id="examplePayment">—</span> ₽/месяц
                                     </div>
-                                    <div>
-                                        <div class="text-[#282624]">Срок кредита</div>
-                                        <div class="text-[#3A7BC0] font-bold">5 лет</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-[#282624]">Первый взнос</div>
-                                        <div class="text-[#3A7BC0] font-bold">0 ₽ (49%)</div>
-                                    </div>
-                                    <div>
-                                        <div class="text-[#282624]">Ежемесячный платёж</div>
-                                        <div class="text-[#3A7BC0] font-bold">0 ₽/мес.</div>
+                                </div>
+
+                                <div class="mt-8">
+                                    <h3 class="text-base sm:text-lg font-medium text-[#282624] mb-4">Наше предложение
+                                    </h3>
+                                    <div class="grid grid-cols-2 gap-4 sm:gap-6 text-sm sm:text-base">
+                                        <div>
+                                            <div class="text-[#282624]">Сумма кредита</div>
+                                            <div class="text-[#3A7BC0] font-bold text-xl sm:text-2xl" id="creditAmount">
+                                                —</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#282624]">Срок кредита</div>
+                                            <div class="text-[#3A7BC0] font-bold text-xl sm:text-2xl"
+                                                id="loanTermDisplay">—</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#282624]">Первоначальный взнос</div>
+                                            <div class="text-[#3A7BC0] font-bold text-xl sm:text-2xl"
+                                                id="downPaymentDisplay">—</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-[#282624]">Ежемесячный платёж</div>
+                                            <div class="text-[#3A7BC0] font-bold text-xl sm:text-2xl"
+                                                id="monthlyPaymentDisplay">—</div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-        
-                            <!-- Кнопка -->
-                            <button type="button" data-action="open-booking-modal" class="w-full py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-semibold rounded-lg hover:from-[#1a2d4a] hover:to-[#3a7dcf] transition flex items-center justify-center gap-2">
-                                Получить предложение →
-                            </button>
-        
                         </div>
                     </div>
-        
                 </div>
             </div>
         </section>
+
         <section class="py-12">
             <div class="container mx-auto px-4">
                 <h2 class="text-center mb-10 text-[#B1B2B4] font-regular
@@ -371,17 +409,20 @@
                     <!-- Блок 1: Первоначальный взнос -->
                     <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
                         <div class="w-full min-h-[277px]">
-                            <img src="../assets/auto/SpecialOffers/08a9395c28a0cfe4b1dd74a97151fc4917980fca (1).png" alt="Solaris у дилера" class="w-full h-[277px] rounded-[12px] object-cover">
+                            <img src="../assets/auto/SpecialOffers/08a9395c28a0cfe4b1dd74a97151fc4917980fca (1).png"
+                                alt="Solaris у дилера" class="w-full h-[277px] rounded-[12px] object-cover">
                         </div>
                         <div class="py-6 flex-grow">
                             <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Первоначальный взнос — от 0%
                             </h3>
                             <p class="text-sm text-[#555555] mb-6">
-                                Программа позволяет приобрести автомобили Solaris без первоначального взноса. Доступна на модели KR, KRX, HC и HS. Минимум затрат — максимум возможностей!
+                                Программа позволяет приобрести автомобили Solaris без первоначального взноса. Доступна
+                                на модели KR, KRX, HC и HS. Минимум затрат — максимум возможностей!
                             </p>
                         </div>
                         <div class=" pb-6">
-                            <a href="./forms/loan.html" class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
                                 получить
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -395,17 +436,20 @@
                     <!-- Блок 2: Trade-in -->
                     <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
                         <div class="w-full min-h-[277px]">
-                            <img src="../assets/auto/SpecialOffers/71a90dc8fbd5ad863484eecc53407456f8810210.png" alt="Три Solaris" class="w-full h-[277px] rounded-[12px] object-cover">
+                            <img src="../assets/auto/SpecialOffers/71a90dc8fbd5ad863484eecc53407456f8810210.png"
+                                alt="Три Solaris" class="w-full h-[277px] rounded-[12px] object-cover">
                         </div>
                         <div class="py-6 flex-grow">
                             <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Выгода до 210 000 ₽ за Trade-in
                             </h3>
                             <p class="text-sm text-[#555555] mb-6">
-                                Обменяйте свой автомобиль на новый Solaris и получите дополнительную выгоду до 210 000 ₽. Предложение действует на модели KR, KRX, HC и HS
+                                Обменяйте свой автомобиль на новый Solaris и получите дополнительную выгоду до 210 000
+                                ₽. Предложение действует на модели KR, KRX, HC и HS
                             </p>
                         </div>
                         <div class="pb-6">
-                            <a href="./forms/loan.html" class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
                                 получить
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -419,17 +463,20 @@
                     <!-- Блок 3: Госпрограмма -->
                     <div class="rounded-md overflow-hidden flex flex-col h-full bg-white shadow-sm">
                         <div class="w-full min-h-[277px]">
-                            <img src="../assets/auto/SpecialOffers/b4acd114bb2d3d5dd8ee3edb537c7251f56175dc (1).png" alt="Solaris с логотипом РИО" class="w-full h-[277px] rounded-[12px] object-cover">
+                            <img src="../assets/auto/SpecialOffers/b4acd114bb2d3d5dd8ee3edb537c7251f56175dc (1).png"
+                                alt="Solaris с логотипом РИО" class="w-full h-[277px] rounded-[12px] object-cover">
                         </div>
                         <div class="py-6 flex-grow">
-                            <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Выгода до 25% по госпрограмме автокредитования
+                            <h3 class="text-lg sm:text-xl font-bold mb-3 text-[#222222]">Выгода до 25% по госпрограмме
+                                автокредитования
                             </h3>
                             <p class="text-sm text-[#555555] mb-6">
                                 Приобретайте Solaris с выгодой до 25% благодаря участию в госпрограмме автокредитования.
                             </p>
                         </div>
                         <div class="pb-6">
-                            <a href="./forms/loan.html" class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
+                            <a href="./forms/loan.html"
+                                class="inline-flex items-center justify-between w-full py-3 px-6 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-xl transition-colors duration-300">
                                 получить
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" fill="none"
                                     viewBox="0 0 24 24" stroke="currentColor">
@@ -445,7 +492,9 @@
             </div>
         </section>
 
-        <section class="relative bg-cover bg-center bg-right min-h-[500px] md:min-h-[600px] lg:min-h-[829px] flex flex-col justify-center px-5 sm:px-10 md:px-16 lg:px-20 text-white" style="background-image: url('../assets/banners/bf84c559c47e9e21c214bf50d6f85c11531a9582.png')">
+        <section
+            class="relative bg-cover bg-center bg-right min-h-[500px] md:min-h-[600px] lg:min-h-[829px] flex flex-col justify-center px-5 sm:px-10 md:px-16 lg:px-20 text-white"
+            style="background-image: url('../assets/banners/bf84c559c47e9e21c214bf50d6f85c11531a9582.png')">
 
             <!-- Затемненный оверлей -->
             <div class="absolute inset-0 bg-black/40 z-10"></div>
@@ -461,15 +510,20 @@
                 </p>
 
                 <p class="text-sm sm:text-base md:text-[16px] leading-relaxed mb-3 md:mb-4">
-                    Мы заботимся о вашем комфорте на всех этапах владения автомобилем: от быстрой записи на тест-драйв и персонального подбора комплектации до оформления кредита, рассрочки или страхования.
+                    Мы заботимся о вашем комфорте на всех этапах владения автомобилем: от быстрой записи на тест-драйв и
+                    персонального подбора комплектации до оформления кредита, рассрочки или страхования.
                 </p>
 
                 <p class="text-sm sm:text-base md:text-[16px] leading-relaxed mb-5 md:mb-6">
-                    Наши специалисты помогут выгодно обменять автомобиль по трейд-ин, оформить сделку максимально удобно и предложат оптимальные условия на сервисное обслуживание.<br class="hidden sm:block"> Приходите в автосалон «Независимость» или оставьте
-                    заявку онлайн — мы свяжемся с вами в удобное время и подготовим персональное предложение, которое сделает покупку Solaris ещё приятнее.
+                    Наши специалисты помогут выгодно обменять автомобиль по трейд-ин, оформить сделку максимально удобно
+                    и предложат оптимальные условия на сервисное обслуживание.<br class="hidden sm:block"> Приходите в
+                    автосалон «Независимость» или оставьте
+                    заявку онлайн — мы свяжемся с вами в удобное время и подготовим персональное предложение, которое
+                    сделает покупку Solaris ещё приятнее.
                 </p>
 
-                <a href="#" class="inline-block bg-gradient-to-r from-[#20365A] to-[#418FDE] hover:bg-blue-700 text-white text-center py-3 px-6 md:py-3 md:px-8 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider transition-colors duration-300">
+                <a href="#"
+                    class="inline-block bg-gradient-to-r from-[#20365A] to-[#418FDE] hover:bg-blue-700 text-white text-center py-3 px-6 md:py-3 md:px-8 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider transition-colors duration-300">
                     Перейти в каталог авто
                 </a>
             </div>
@@ -483,7 +537,8 @@
 
             <!-- Логотип -->
             <div class="mb-10 flex items-center space-x-2">
-                <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8s w-auto flex-shrink-0" />
+                <img src="../assets/common/Clip path group.svg" alt="SOLARIS"
+                    class="h-3 sm:h-6 md:h-8s w-auto flex-shrink-0" />
                 <span class="text-lg font-medium uppercase tracking-wide">НЕЗАВИСИМОСТЬ</span>
             </div>
 
@@ -515,9 +570,15 @@
             </div>
 
             <div class="mb-8 text-xs leading-relaxed text-gray-300">
-                Производитель сохраняет за собой исключительное право в любое время вносить дополнения, изменения, обновления в информацию о параметрах продукта, конфигурации, материалы, цвета и в другую информацию о транспортном средстве без предварительного уведомления.
-                Приобретение любой продукции бренда Solaris осуществляется в соответствии с условиями индивидуального договора купли-продажи. Представленное изображение, цвет, технические характеристики и комплектация автомобилей могут отличаться от реализуемого.
-                Упоминаемое оборудование может быть опциональным. Для получения подробной информации об актуальных ценах на продукцию Solaris и наличии автомобилей обращайтесь к официальным дилерам. Не является публичной офертой.
+                Производитель сохраняет за собой исключительное право в любое время вносить дополнения, изменения,
+                обновления в информацию о параметрах продукта, конфигурации, материалы, цвета и в другую информацию о
+                транспортном средстве без предварительного уведомления.
+                Приобретение любой продукции бренда Solaris осуществляется в соответствии с условиями индивидуального
+                договора купли-продажи. Представленное изображение, цвет, технические характеристики и комплектация
+                автомобилей могут отличаться от реализуемого.
+                Упоминаемое оборудование может быть опциональным. Для получения подробной информации об актуальных ценах
+                на продукцию Solaris и наличии автомобилей обращайтесь к официальным дилерам. Не является публичной
+                офертой.
             </div>
 
             <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs space-y-4 sm:space-y-0">
@@ -546,6 +607,8 @@
     <script src="../scripts/components/modals/dialog/FortuneWheel.js"></script>
     <!-- <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script> -->
     <script src="../scripts/modules/show/filters/showCar.js"></script>
+    <script src="../scripts/modules/blockInput.js"></script>
+    <script src="../scripts/modules/iterations/changeColors.js"></script>
 
     <style>
         @keyframes scaleIn {
@@ -553,6 +616,7 @@
                 transform: scale(0.8);
                 opacity: 0;
             }
+
             to {
                 transform: scale(1);
                 opacity: 1;

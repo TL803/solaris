@@ -529,11 +529,10 @@
         <section class="p-6 text-white">
             <div class="container mx-auto space-y-6">
                 <!-- Заголовок -->
-                <h1
-                    class="text-center mb-8 text-[#B1B2B4] font-regular text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
+                <h1 class="text-center mb-8 text-[#B1B2B4] font-regular text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
                     Рассчитать кредит
                 </h1>
-
+        
                 <!-- Основной контейнер: 2 колонки -->
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:min-h-[500px]">
                     <!-- ЛЕВАЯ КОЛОНКА: ФОРМА РАСЧЁТА -->
@@ -541,30 +540,28 @@
                         <!-- Шаг 1: Выберите авто -->
                         <div class="space-y-4">
                             <h2 class="text-[32px] font-medium text-[#282624]">Выберите авто</h2>
-                            <p class="text-[16px] text-[#282624]">Для расчета условий по автокредиту выберите модель и
-                                комплектацию</p>
-
+                            <p class="text-[16px] text-[#282624]">Для расчета условий по автокредиту выберите модель и комплектацию
+                            </p>
+        
                             <!-- Выбор модели и комплектации -->
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <select data-select-model data-sync="car-select"
-                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+                                <select data-select-model data-sync="car-select" class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
                                     <option value="" disabled selected>Выберите модель</option>
                                     <option value="T77">T77</option>
                                     <option value="T90">T90</option>
                                 </select>
-
-                                <select data-select-trim data-sync="car-select"
-                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Выберите комплектацию</option>
+        
+                                <select data-select-trim data-sync="car-select" class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer" disabled>
+                                    <option value="" disabled selected>Сначала выберите модель</option>
                                 </select>
                             </div>
-
+        
                             <div class="mt-4 flex items-center gap-3 md:gap-6">
                                 <label class="block text-sm text-[#282624] mb-1">Стоимость автомобиля:</label>
                                 <span id="carPriceDisplay" class="text-lg font-bold text-[#3366BD]">—</span>
                             </div>
                         </div>
-
+        
                         <!-- Шаг 2: Первоначальный взнос -->
                         <div class="space-y-4">
                             <h2 class="text-lg font-medium text-[#282624]">Первоначальный взнос</h2>
@@ -572,13 +569,12 @@
                                 <span id="downPaymentAmountDesktop" class="text-xl font-bold text-[#282624]">0 ₽</span>
                                 <span id="downPaymentPercentDesktop" class="text-xl text-[#282624]">(0%)</span>
                             </div>
-
+        
                             <div class="relative h-10">
-                                <input type="range" min="0" max="90" value="0" step="10" id="downPaymentSliderDesktop"
-                                    class="custom-slider w-full bg-white border border-white/40">
+                                <input type="range" min="0" max="90" value="0" step="10" id="downPaymentSliderDesktop" class="custom-slider w-full bg-white border border-white/40">
                                 <div id="downPaymentTrack" class="slider-track" style="width: 0%;"></div>
                             </div>
-
+        
                             <div class="flex justify-between text-[12px] sm:text-xs text-gray-400 sm:mt-1">
                                 <span>0%</span>
                                 <span>10%</span>
@@ -592,42 +588,37 @@
                                 <span>90%</span>
                             </div>
                         </div>
-
+        
                         <!-- Шаг 3: Срок кредита -->
                         <div class="space-y-4">
                             <h2 class="text-lg font-medium text-[#282624]">Срок кредита</h2>
                             <div class="flex items-center gap-2">
                                 <span id="loanTermYearsDesktop" class="text-xl font-bold text-[#282624]">6 мес.</span>
                             </div>
-
+        
                             <div class="relative h-10">
-                                <input type="range" min="0.5" max="7" value="0.5" step="0.5" id="loanTermSliderDesktop"
-                                    class="custom-slider w-full bg-white border border-white/40">
+                                <input type="range" min="0.5" max="7" value="0.5" step="0.5" id="loanTermSliderDesktop" class="custom-slider w-full bg-white border border-white/40">
                                 <div id="loanTermTrack" class="slider-track" style="width: 0%;"></div>
                             </div>
-
+        
                             <div class="flex justify-between mt-4">
-                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm"
-                                    data-term="0.5">6 мес.</button>
-                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm"
-                                    data-term="7">7 лет</button>
+                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="0.5">6 мес.</button>
+                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="7">7 лет</button>
                             </div>
                         </div>
                     </div>
-
+        
                     <!-- ПРАВАЯ КОЛОНКА: ЕДИНАЯ КАРТОЧКА -->
                     <div class="flex flex-col lg:h-full">
-                        <div id="offerCard"
-                            class="bg-[#E9E9E980] rounded-xl p-6 space-y-2 sm:space-y-6 flex flex-col lg:flex-grow lg:min-h-0">
-
+                        <div id="offerCard" class="bg-[#E9E9E980] rounded-xl p-6 space-y-2 sm:space-y-6 flex flex-col lg:flex-grow lg:min-h-0">
+        
                             <!-- Изображение -->
                             <div class="flex justify-center">
-                                <img src="../assets/auto/Rectangle 244.png" alt="Выберите автомобиль"
-                                    class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay">
+                                <img src="../assets/auto/Rectangle 244.png" alt="Выберите автомобиль" class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay">
                             </div>
-
+        
                             <h2 class="text-[24px] font-regular text-[#282624]">Наше предложение</h2>
-
+        
                             <div class="grid grid-cols-2 gap-4 text-sm flex-1">
                                 <div>
                                     <div class="text-[#282624] text-[16px] mb-1">Сумма кредита</div>
@@ -646,9 +637,8 @@
                                     <div class="text-[#3A7BC0] font-bold" id="monthlyPaymentDisplay">—</div>
                                 </div>
                             </div>
-
-                            <button type="button" data-action="open-booking-modal"
-                                class="w-full py-3 bg-[#3366BD] text-white font-semibold rounded-lg hover:bg-[#2a55a0] transition flex items-center justify-center gap-2">
+        
+                            <button type="button" data-action="open-booking-modal" class="w-full py-3 bg-[#3366BD] text-white font-semibold rounded-lg hover:bg-[#2a55a0] transition flex items-center justify-center gap-2">
                                 Получить предложение →
                             </button>
                         </div>

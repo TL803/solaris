@@ -2,7 +2,7 @@ const colorContainer = document.getElementById('colors-container');
 const carImage = document.getElementById('car-image');
 
 const colors = [
-    { name: "Rectangle 248.png", hex: "#FFFFFF" },
+    { name: "Rectangle 243.png", hex: "#FFFFFF" },
     { name: "Rectangle 248.png", hex: "#FFFFFF" },
     { name: "Rectangle 248.png", hex: "#949494" },
     { name: "Rectangle 248.png", hex: "#000000" },
@@ -30,7 +30,7 @@ colorContainer.addEventListener('click', (e) => {
         activeColorElem = e.target;
 
         const selectedColor = e.target.dataset.color;
-        carImage.src = `../assets/mock/${selectedColor}`;
+        carImage.src = `../assets/auto/${selectedColor}`;
     }
 });
 
