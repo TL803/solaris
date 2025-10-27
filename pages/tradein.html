@@ -211,6 +211,69 @@
 
 
     <main class="pt-16">
+
+<!-- ЛЕВАЯ КОЛОНКА -->
+<div class="bg-[#E9E9E980] rounded-xl p-6 space-y-6 flex flex-col">
+    <!-- Шаг 1: Выберите авто — ВСЕГДА ВИДЕН -->
+    <div class="space-y-4">
+      <h3 class="text-lg font-medium text-[#282624]">1. Выберите новый авто</h3>
+      <div class="space-y-3">
+        <select data-select-model
+          class="w-full p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+          <option value="" disabled selected>Модель</option>
+          <option value="T77">FAW T77</option>
+          <option value="T90">FAW T90</option>
+        </select>
+  
+        <select data-select-trim
+          class="w-full p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer"
+          disabled>
+          <option value="" disabled selected>Комплектация</option>
+        </select>
+      </div>
+    </div>
+  
+    <!-- ОСТАЛЬНОЕ — СКРЫТО ДО ВЫБОРА КОМПЛЕКТАЦИИ -->
+    <div id="conditionalForm" class="hidden space-y-6">
+      <!-- Шаг 2: Trade-in -->
+      <div class="space-y-4">
+        <h3 class="text-lg font-medium text-[#282624]">2. Введите данные вашего автомобиля</h3>
+        <div class="space-y-3">
+          <input type="text" placeholder="Марка" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
+          <input type="text" placeholder="Модель" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
+          <input type="text" placeholder="Пробег" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
+          <input type="text" placeholder="Год" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
+        </div>
+      </div>
+  
+      <!-- Шаг 3: Контакты -->
+      <form data-car-form class="space-y-4">
+        <h3 class="text-lg font-medium text-[#282624]">3. Введите ваши контакты</h3>
+        <input type="text" placeholder="ФИО" data-validate="name"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+        <input type="text" placeholder="Телефон" data-validate="phone"
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+  
+        <div class="flex items-start space-x-3">
+          <label class="custom-checkbox-square">
+            <input type="checkbox" data-validate="required" />
+            <span class="checkmark">✓</span>
+          </label>
+          <span class="text-xs text-gray-300 leading-relaxed">
+            Согласен с <a href="./privacypolicy.html" class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки персональных данных</a>
+          </span>
+        </div>
+  
+        <button type="submit"
+          class="w-full py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-semibold rounded-lg hover:from-[#1a2d4a] hover:to-[#3a7dcf] transition flex items-center justify-center gap-2">
+          Отправить заявку
+        </button>
+      </form>
+    </div>
+  </div>
+
+
+
         <section class="py-12">
             <div class="container mx-auto px-4">
                 <h2 class="text-center mb-10 text-[#B1B2B4] font-regular
@@ -472,7 +535,11 @@
 
     <script src="../scripts/components/modals/widget/feedback.js"></script>
     <script src="../scripts/components/modals/dialog/FortuneWheel.js"></script>
-    <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script>
+    <!-- <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script> -->
+    <script src="../scripts/modules/show/filters/showCar.js"></script>
+    <script src="../scripts/modules/blockInput.js"></script>
+    <script src="../scripts/modules/iterations/changeColors.js"></script>
+
 
     <style>
         @keyframes scaleIn {
