@@ -13,27 +13,34 @@ let activeColorElem = null;
 
 colors.forEach((color) => {
     const colorElem = document.createElement('div');
-    colorElem.className = 'w-[48px] h-[48px] border-2 border-gray-300 rounded-[6px] cursor-pointer';
+    // Фиксированный размер: 48×48px, включая border
+    colorElem.style.width = '48px';
+    colorElem.style.height = '48px';
+    colorElem.style.border = '2px solid #D1D5DB'; // tailwind gray-300
+    colorElem.style.borderRadius = '6px';
     colorElem.style.backgroundColor = color.hex;
+    colorElem.style.cursor = 'pointer';
+    colorElem.style.boxSizing = 'border-box'; // важно: border входит в 48px
     colorElem.title = `${color.name} — ${color.hex}`;
     colorElem.dataset.color = color.name;
     colorContainer.appendChild(colorElem);
 });
 
 colorContainer.addEventListener('click', (e) => {
-    if (e.target.classList.contains('cursor-pointer')) {
-        if (activeColorElem) {
-            activeColorElem.classList.replace('border-blue-500', 'border-gray-300');
-        }
+    if (e.target.tagName !== 'DIV') return;
 
-        e.target.classList.replace('border-gray-300', 'border-blue-500');
-        activeColorElem = e.target;
-
-        const selectedColor = e.target.dataset.color;
-        carImage.src = `../assets/auto/${selectedColor}`;
+    if (activeColorElem) {
+        activeColorElem.style.borderColor = '#D1D5DB'; // gray-300
     }
+
+    e.target.style.borderColor = '#3B82F6'; // tailwind blue-500
+    activeColorElem = e.target;
+
+    const selectedColor = e.target.dataset.color;
+    carImage.src = `../assets/auto/${selectedColor}`;
 });
 
+// Активировать первый цвет
 if (colorContainer.firstElementChild) {
     colorContainer.firstElementChild.click();
 }

@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', function () {
     let carPrice = 0;
     const interestRate = 12;
 
-    // DOM
     const modelSelect = document.querySelector('[data-select-model]');
     const trimSelect = document.querySelector('[data-select-trim]');
     const conditionalForm = document.getElementById('conditionalForm');
@@ -48,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const termButtons = document.querySelectorAll('[data-term]');
 
-    // === ЦВЕТА ===
     const colors = [
         { name: "Rectangle 248.png", hex: "#FFFFFF" },
         { name: "Rectangle 249.png", hex: "#949494" },
@@ -83,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
             colorContainer.appendChild(colorElem);
         });
     
-        // Обработчик клика — всегда ставим одну и ту же картинку
         colorContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('cursor-pointer')) {
                 if (activeColorElem) {
@@ -129,7 +126,6 @@ document.addEventListener('DOMContentLoaded', function () {
         return principal * (r * Math.pow(1 + r, months)) / (Math.pow(1 + r, months) - 1);
     }
 
-    // === ОБНОВЛЕНИЕ ВСЕГО ===
     function updateAll() {
         const hasSelection = selectedModel && carPrice > 0;
 
@@ -156,14 +152,12 @@ document.addEventListener('DOMContentLoaded', function () {
             carImageDisplay.alt = "Выберите автомобиль";
 
             carPriceDisplay.textContent = "—";
-            // Сброс значений ползунков при отсутствии выбора
             downSlider.value = "0";
             termSlider.value = "0.5";
-            updateTracks(); // обновляем треки даже при сбросе
+            updateTracks();
             return;
         }
 
-        // Расчёт
         const downPerc = parseFloat(downSlider.value);
         const termYears = parseFloat(termSlider.value);
 
@@ -172,7 +166,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const months = termYears * 12;
         const payment = calcPayment(credit, interestRate, months);
 
-        // Обновление текста
         carPriceDisplay.textContent = formatCurrency(carPrice);
         examplePaymentEl.textContent = formatCurrency(Math.round(payment));
 
@@ -186,25 +179,20 @@ document.addEventListener('DOMContentLoaded', function () {
         creditAmountEl.textContent = formatCurrency(credit);
         monthlyPaymentEl.textContent = `${formatCurrency(Math.round(payment))}/мес.`;
 
-        // Обязательно обновляем треки
         updateTracks();
     }
 
-    // === Отдельная функция для обновления треков ===
     function updateTracks() {
         const downPerc = parseFloat(downSlider.value);
         const termYears = parseFloat(termSlider.value);
 
-        // Ширина трека для первоначального взноса: 0% → 0%, 90% → 100%
         const downWidth = Math.max(0, Math.min(100, (downPerc / 90) * 100));
         downTrack.style.width = `${downWidth}%`;
 
-        // Ширина трека для срока: 0.5 → 0%, 7 → 100%
         const termWidth = Math.max(0, Math.min(100, ((termYears - 0.5) / (7 - 0.5)) * 100));
         termTrack.style.width = `${termWidth}%`;
     }
 
-    // === ЛОГИКА ВЫБОРА АВТО ===
     function populateTrims() {
         const model = modelSelect.value;
         if (!model || !carData[model]) {
@@ -230,14 +218,12 @@ document.addEventListener('DOMContentLoaded', function () {
         updateAll();
     }
 
-    // === СОБЫТИЯ ===
     modelSelect.addEventListener('change', populateTrims);
     trimSelect.addEventListener('change', () => {
         carPrice = trimSelect.value ? parseInt(trimSelect.value) : 0;
         updateAll();
     });
 
-    // Теперь ползунки работают через updateAll + updateTracks
     downSlider.addEventListener('input', updateAll);
     termSlider.addEventListener('input', updateAll);
 
@@ -248,6 +234,5 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Инициализация
     updateAll();
 });

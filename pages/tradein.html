@@ -212,65 +212,158 @@
 
     <main class="pt-16">
 
-<!-- ЛЕВАЯ КОЛОНКА -->
-<div class="bg-[#E9E9E980] rounded-xl p-6 space-y-6 flex flex-col">
-    <!-- Шаг 1: Выберите авто — ВСЕГДА ВИДЕН -->
-    <div class="space-y-4">
-      <h3 class="text-lg font-medium text-[#282624]">1. Выберите новый авто</h3>
-      <div class="space-y-3">
-        <select data-select-model
-          class="w-full p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
-          <option value="" disabled selected>Модель</option>
-          <option value="T77">FAW T77</option>
-          <option value="T90">FAW T90</option>
-        </select>
-  
-        <select data-select-trim
-          class="w-full p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer"
-          disabled>
-          <option value="" disabled selected>Комплектация</option>
-        </select>
-      </div>
-    </div>
-  
-    <!-- ОСТАЛЬНОЕ — СКРЫТО ДО ВЫБОРА КОМПЛЕКТАЦИИ -->
-    <div id="conditionalForm" class="hidden space-y-6">
-      <!-- Шаг 2: Trade-in -->
-      <div class="space-y-4">
-        <h3 class="text-lg font-medium text-[#282624]">2. Введите данные вашего автомобиля</h3>
-        <div class="space-y-3">
-          <input type="text" placeholder="Марка" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
-          <input type="text" placeholder="Модель" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
-          <input type="text" placeholder="Пробег" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
-          <input type="text" placeholder="Год" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-black" />
-        </div>
-      </div>
-  
-      <!-- Шаг 3: Контакты -->
-      <form data-car-form class="space-y-4">
-        <h3 class="text-lg font-medium text-[#282624]">3. Введите ваши контакты</h3>
-        <input type="text" placeholder="ФИО" data-validate="name"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
-        <input type="text" placeholder="Телефон" data-validate="phone"
-          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
-  
-        <div class="flex items-start space-x-3">
-          <label class="custom-checkbox-square">
-            <input type="checkbox" data-validate="required" />
-            <span class="checkmark">✓</span>
-          </label>
-          <span class="text-xs text-gray-300 leading-relaxed">
-            Согласен с <a href="./privacypolicy.html" class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки персональных данных</a>
-          </span>
-        </div>
-  
-        <button type="submit"
-          class="w-full py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-semibold rounded-lg hover:from-[#1a2d4a] hover:to-[#3a7dcf] transition flex items-center justify-center gap-2">
-          Отправить заявку
-        </button>
-      </form>
-    </div>
-  </div>
+        <section class="p-6">
+            <div class="container mx-auto space-y-6">
+                <!-- Заголовок -->
+                <h1 class="text-center mb-8 text-[#B1B2B4] font-regular text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
+                    Рассчитать кредит
+                </h1>
+        
+                <!-- Основной контейнер: 2 колонки -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- ЛЕВАЯ КОЛОНКА -->
+                    <div class="bg-[#E9E9E980] rounded-xl p-6 space-y-6 flex flex-col">
+                        <!-- Шаг 1: Выберите авто -->
+                        <div class="space-y-4">
+                            <h2 class="text-[32px] font-medium text-[#282624]">Выберите авто</h2>
+                            <p class="text-[16px] text-[#282624]">Для расчета условий по автокредиту выберите модель и комплектацию</p>
+        
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <select data-select-model class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+                                    <option value="" disabled selected>Выберите модель</option>
+                                    <option value="T77">FAW T77</option>
+                                    <option value="T90">FAW T90</option>
+                                </select>
+        
+                                <select data-select-trim class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer" disabled>
+                                    <option value="" disabled selected>Сначала выберите модель</option>
+                                </select>
+                            </div>
+                        </div>
+        
+                        <!-- Скрытые блоки для кредитного калькулятора -->
+                        <div id="conditionalForm" class="hidden space-y-6">
+                            <!-- Форма для trade-in -->
+                            <div class="space-y-4">
+                                <h2 class="text-lg font-medium text-[#282624]">2. Введите данные вашего автомобиля</h2>
+                                <input type="text" placeholder="Марка" data-validate="brand"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                                <input type="text" placeholder="Модель" data-validate="model"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                                <input type="text" placeholder="Пробег" data-validate="mileage"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                                <input type="text" placeholder="Год" data-validate="year"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                            </div>
+        
+                            <!-- Контактные данные -->
+                            <div class="space-y-4">
+                                <h2 class="text-lg font-medium text-[#282624]">3. Введите ваши контакты</h2>
+                                <input type="text" placeholder="ФИО" data-validate="name"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+                                <input type="text" placeholder="Телефон" data-validate="phone"
+                                    class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
+        
+                                <div class="flex items-center space-x-3">
+                                    <label class="inline-flex items-center">
+                                        <input type="checkbox" data-validate="required" class="rounded border-gray-300 text-[#3366BD] focus:ring-[#3366BD]" />
+                                        <span class="ml-2 text-sm text-[#282624] leading-relaxed">
+                                            Согласен с <a href="#" class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки персональных данных</a>
+                                        </span>
+                                    </label>
+                                </div>
+        
+                                <button type="submit"
+                                    class="w-full py-3 bg-[#3366BD] text-white font-semibold rounded-lg hover:bg-[#2a55a0] transition">
+                                    Отправить заявку
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!-- ПРАВАЯ КОЛОНКА -->
+                    <div class="flex flex-col lg:h-full">
+                        <div class="bg-[#E9E9E980] rounded-xl p-6 flex flex-col lg:flex-grow lg:min-h-0">
+                            <div class="flex justify-center mb-4">
+                                <img src="https://via.placeholder.com/400x250/cccccc/666666?text=Выберите+автомобиль" alt="Выберите автомобиль"
+                                    class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay" />
+                            </div>
+        
+                            <!-- СКРЫТОЕ ПРЕДЛОЖЕНИЕ -->
+                            <div id="conditionalOffer" class="hidden space-y-6 pt-4">
+                                <div>
+                                    <h2 class="text-[28px] sm:text-[32px] font-bold text-[#282624]" id="carModelTitle">FAW T77</h2>
+                                    <p class="text-sm sm:text-base text-[#282624] mt-1" id="carSpecs">PRESTIGE PLUS (ДСТ) B70</p>
+                                </div>
+        
+                                <div class="flex justify-center">
+                                    <img src="https://via.placeholder.com/400x200/3A7BC0/ffffff?text=FAW+T77" alt="FAW T77"
+                                        class="w-full h-auto max-h-64 object-contain rounded-lg" id="car-image" />
+                                </div>
+        
+                                <div id="colors-container" class="flex justify-center space-x-2 mt-4">
+                                    <!-- Цвета будут добавлены скриптом -->
+                                </div>
+        
+                                <div class="mt-6">
+                                    <div class="text-sm text-[#282624]">Стоимость</div>
+                                    <div class="text-2xl sm:text-3xl font-bold text-[#282624] line-through"
+                                        id="originalPrice">2 448 000 ₽</div>
+                                    <div class="text-3xl sm:text-4xl font-extrabold text-[#3A7BC0] mt-1"
+                                        id="finalPrice">2 036 000 ₽</div>
+                                    <div class="text-sm sm:text-base text-[#282624] mt-1">
+                                        Платеж от <span id="examplePayment">11 444</span> ₽/месяц
+                                    </div>
+                                </div>
+        
+                                <div class="mt-8">
+                                    <h3 class="text-base sm:text-lg font-medium text-[#282624] mb-4">Характеристики</h3>
+                                    <div class="space-y-3 text-sm sm:text-base">
+                                        <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-engine" viewBox="0 0 16 16">
+                                                    <path d="M5.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0m5-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m-2 0V2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v1z"/>
+                                                </svg>
+                                                <span class="text-[#282624]">Двигатель</span>
+                                            </div>
+                                            <span class="text-[#282624] font-medium">1.5 160 л.с.</span>
+                                        </div>
+                                        <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+                                                </svg>
+                                                <span class="text-[#282624]">Трансмиссия</span>
+                                            </div>
+                                            <span class="text-[#282624] font-medium">7DCT</span>
+                                        </div>
+                                        <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-car-front" viewBox="0 0 16 16">
+                                                    <path d="M4 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0m10 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0M6 8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1zm10 0a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1zM6 8a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1zm10 0a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1z"/>
+                                                </svg>
+                                                <span class="text-[#282624]">Привод</span>
+                                            </div>
+                                            <span class="text-[#282624] font-medium">Передний (2WD)</span>
+                                        </div>
+                                        <div class="flex justify-between items-center p-3 bg-white/50 rounded-lg">
+                                            <div class="flex items-center gap-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-circle" viewBox="0 0 16 16">
+                                                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1a8 8 0 1 0 0-16 8 8 0 0 0 0 16"/>
+                                                    <path d="m10.97 4.97-.02.02-.022.022L7.477 9.417 6.384 8.324a.75.75 0 1 0-1.06.056l-1.704 1.704a.75.75 0 0 0 1.06.056l1.704-1.704 1.093 1.093.022.022.022.022 1.297 1.297a.75.75 0 0 0 .98.073l1.704-1.704a.75.75 0 0 0 .056-1.06z"/>
+                                                </svg>
+                                                <span class="text-[#282624]">Комплектация</span>
+                                            </div>
+                                            <span class="text-[#282624] font-medium">PRESTIGE PLUS (DCT)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
 
 
