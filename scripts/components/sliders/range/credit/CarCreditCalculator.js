@@ -1,13 +1,13 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function() {
     // Данные: модели → комплектации → цена
     const carData = {
         T77: {
-            'PRESTIGE PLUS (ДСТ) B70': 2_036_000,
-            'COMFORT (МКПП)': 1_850_000,
+            'PRESTIGE PLUS (ДСТ) B70': 2036000,
+            'COMFORT (МКПП)': 1850000,
         },
         T90: {
-            'SPORT EDITION 1.5T': 2_450_000,
-            'LUXURY 2.0T': 2_790_000,
+            'SPORT EDITION 1.5T': 2450000,
+            'LUXURY 2.0T': 2790000,
         }
     };
 

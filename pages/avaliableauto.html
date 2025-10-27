@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О компании</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../styles/slider.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="../styles/checkbox.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        customGray: '#1a1a1a',
+                        lightGray: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    },
+
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="font-sans bg-[#282624] text-[#01101B]">
+
+
+
+    <header class="bg-gradient-to-r w-full from-[#6A8DBA] fixed top-0 left-0 to-[#2C3E50] text-white z-[100]" style="box-shadow: none;">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Логотип и название -->
+                <a href="./" class="flex-shrink-0 flex items-center min-w-0">
+                    <!-- Логотип -->
+                    <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8 w-auto flex-shrink-0" />
+
+                    <!-- Разделитель -->
+                    <span class="mx-3 text-white">|</span>
+
+                    <!-- Текст -->
+                    <span class="font-semibold text-[12px] sm:text-base whitespace-nowrap">
+                        НЕЗАВИСИМОСТЬ
+                    </span>
+                </a>
+
+                <!-- Десктоп: меню -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <nav class="flex items-center space-x-6">
+                        <p data-open-modal="models-modal" class="cursor-pointer hover:text-gray-200 text-sm font-medium whitespace-nowrap">
+                            Модели
+                        </p>
+                        <a href="./cars.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Авто в
+                            наличии</a>
+                        <a href="./loan.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Кредит</a>
+                        <a href="./tradein.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Trade-in</a>
+                        <a href="./stocks.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
+                        <a href="./contacts.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Контакты</a>
+                    </nav>
+                </div>
+
+                <!-- Мобильное меню: только бургер -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <img src="../assets/mobile/Vector (24).svg" alt="Vector (24).svg" />
+                    <button id="mobile-menu-button" class="p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg z-50">
+            <div id="mobile-main-menu" class="px-4 pt-2 pb-4 space-y-1">
+                <p data-open-mobile-models class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200 cursor-pointer flex items-center justify-between">
+                    Модели
+                    <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </p>
+                <a href="./cars.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Авто
+                    в наличии</a>
+                <a href="./loan.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Кредит</a>
+                <a href="./tradein.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Trade-in</a>
+                <a href="./stocks.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Спецпредложения</a>
+                <a href="./contacts.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Контакты</a>
+            </div>
+
+            <!-- Меню моделей -->
+            <div id="mobile-models-menu" class="hidden px-4 pt-2 pb-3">
+                <button id="mobile-models-back" class="flex items-center px-3 py-2 text-base font-medium text-white hover:text-gray-200 mb-3 cursor-pointer">
+                    <svg class="w-4 h-4 mr-1.5 transform rotate-180" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Назад
+                </button>
+
+                <div class="space-y-1">
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="models-dropdown" class="absolute left-0 top-14 right-0 mt-2 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg rounded-md hidden z-50 ">
+            <div class="py-2">
+                <a href="#" class="flex justify-center items-center px-4 py-3 transition">
+                    <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                    <div>
+                        <div class="font-medium text-white">Solaris KRX</div>
+                        <div class="text-xs text-gray-100">от 2 129 990 ₽*</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Dropdown для "Модели" -->
+    <div id="models-dropdown" class="absolute left-0 top-14 right-0 mt-2 bg-white shadow-lg rounded-md hidden z-50 border border-gray-200">
+        <div class="py-2">
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый T90.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый Т90</div>
+                    <div class="text-xs text-gray-500">от 2 129 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый B70.png" alt="Новый В70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый В70</div>
+                    <div class="text-xs text-gray-500">от 1 849 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T55.png" alt="T55" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T55</div>
+                    <div class="text-xs text-gray-500">от 1 561 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/B70.png" alt="B70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">B70</div>
+                    <div class="text-xs text-gray-500">от 1 724 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T77.png" alt="T77" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T77</div>
+                    <div class="text-xs text-gray-500">от 1 924 000 ₽*</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+
+    <main class="bg-white  ">
+
+
+        <section class="container mx-auto flex flex-col md:flex-row gap-6 md:gap-8 pt-[120px] px-4">
+
+            <!-- Изображение автомобиля -->
+            <div class="w-full md:w-1/2" data-car-info>
+                <!-- Главное изображение -->
+                <img id="car-image" src="../assets/common/car-red.png" alt="BESTUNE T77" class="w-full h-[280px] sm:h-[320px] md:h-[360px] rounded-xl shadow-md object-cover" />
+
+                <!-- Миниатюры -->
+                <div class="flex flex-nowrap overflow-x-auto py-2 mt-4 -mx-1 px-1 scrollbar-hide">
+                    <div class="flex-shrink-0 w-1/5 px-1">
+                        <img src="../assets/mock/Rectangle 245.png" alt="Интерьер" class="w-full h-auto object-cover rounded-xl cursor-pointer" />
+                    </div>
+                    <div class="flex-shrink-0 w-1/5 px-1">
+                        <img src="../assets/mock/Rectangle 245.png" alt="Вид сбоку" class="w-full h-auto object-cover rounded-xl cursor-pointer" />
+                    </div>
+                    <div class="flex-shrink-0 w-1/5 px-1">
+                        <img src="../assets/mock/Rectangle 245.png" alt="Вид сзади" class="w-full h-auto object-cover rounded-xl cursor-pointer" />
+                    </div>
+                    <div class="flex-shrink-0 w-1/5 px-1">
+                        <img src="../assets/mock/Rectangle 245.png" alt="Вид сзади" class="w-full h-auto object-cover rounded-xl cursor-pointer" />
+                    </div>
+                    <div class="flex-shrink-0 w-1/5 px-1">
+                        <img src="../assets/mock/Rectangle 245.png" alt="Вид сзади" class="w-full h-auto object-cover rounded-xl cursor-pointer" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Информация о автомобиле -->
+            <div class="w-full md:w-1/2 space-y-6 sm:space-y-[52px] mt-6 md:mt-0">
+                <h1 class=" text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[52px] font-bold">
+                    Solaris HC</span>
+                </h1>
+                <!-- Цвета -->
+                <div id="colors-container" class="flex flex-nowrap gap-2 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
+                    <!-- Пример цветов (можно генерировать динамически) -->
+                    <!-- <div class="w-8 h-8 rounded-full bg-red-500 cursor-pointer border-2 border-white shadow"></div> -->
+                </div>
+
+                <!-- Цена -->
+                <div>
+                    <p class="text-sm text-gray-500">Стоимость</p>
+                    <p class="text-base font-medium line-through text-gray-400">2 448 000 ₽</p>
+                    <p class="text-2xl sm:text-3xl font-bold text-blue-600">2 036 000 ₽</p>
+                    <p class="text-xl font-medium mt-1">Платеж от 11 444 ₽/месяц</p>
+                </div>
+
+                <!-- Кнопки -->
+                <div class="flex flex-col gap-3 w-full">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="./forms/testdrive.html" class="flex-1 px-5 py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white rounded-lg  transition font-medium text-sm sm:text-[15px] text-center">
+                            ЗАПИСАТЬСЯ НА ТЕСТ-ДРАЙВ →
+                        </a>
+                        <a href="./forms/tradein.html" class="flex-1 px-5 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium text-sm sm:text-[15px] text-center">
+                            ОБМЕНЯТЬ ПО TRADE-IN →
+                        </a>
+                    </div>
+                    <a href="#loan-page" class="w-full px-5 py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white rounded-lg transition font-medium text-sm sm:text-[15px] text-center">
+                        РАССЧИТАТЬ В КРЕДИТ →
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="container mx-auto p-6">
+            <!-- Вкладки -->
+            <div class="flex justify-between border-b border-gray-200 pb-2 mb-4">
+                <button id="tab-completions" class="text-xl font-medium text-center flex-1 pb-1 border-b-2 border-black" onclick="switchTab('completions')">
+                    Комплектации
+                </button>
+                <button id="tab-specs" class="text-xl font-medium text-center flex-1 pb-1 border-b-2 border-transparent" onclick="switchTab('specs')">
+                    Характеристики
+                </button>
+            </div>
+
+            <!-- Контент: Комплектации -->
+            <div id="content-completions" class="block">
+                <div class="w-full">
+                    <div class="mx-auto px-4 py-4 space-y-6">
+
+                        <!-- 2.5 л. 6АКПП (180 л.с.) FWD -->
+                        <h2 class="text-xl lg:text-2xl font-semibold mb-6 text-blue-600">
+                            2.5 л. 6АКПП (180 л.с.) FWD
+                        </h2>
+
+                        <div>
+                            <details class="w-full group space-y-4">
+                                <summary class="list-none cursor-pointer">
+                                    <div class="grid grid-cols-1 xl:grid-cols-5 gap-3 lg:gap-6 items-center bg-white lg:bg-[#fafafa] p-3 lg:p-5 rounded-xl hover:shadow-sm transition-shadow">
+                                        <div class="flex items-center gap-2 justify-center xl:justify-start">
+                                            <span class="font-semibold text-base lg:text-lg text-gray-800">Comfort</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="line-through text-base lg:text-lg text-gray-500 hidden xl:block">
+                                                2 300 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="flex justify-center">
+                                            <span class="text-blue-600 font-semibold text-base lg:text-lg flex items-center gap-2 whitespace-nowrap">
+                                                <span class="xl:hidden line-through text-gray-400 text-xs">2 300 000
+                                                    ₽</span> от 1 950 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="text-gray-600 text-sm lg:text-base whitespace-nowrap">
+                                                В кредит от 9 500 ₽/мес.
+                                            </span>
+                                        </div>
+
+                                        <div class="flex flex-col sm:flex-row gap-3 mt-4 xl:mt-0 justify-center xl:justify-start w-full xl:w-auto">
+                                            <a href="./forms/loan.html" data-toggle-timer-container="Credit" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#3366BD] text-white rounded-md hover:bg-[#2a55a0] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                В кредит
+                                            </a>
+                                            <a href="./forms/tradein.html" data-toggle-timer-container="Trade-in" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#dbeafe] text-[#3366bd] rounded-md hover:bg-[#bfdbfe] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                Trade-in
+                                            </a>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="rounded-xl p-4 lg:p-6 mt-[-1px] bg-white lg:bg-[#fafafa]">
+                                    <div class="space-y-3 text-gray-700 columns-1 sm:columns-2 lg:columns-3 [&>div]:break-inside-avoid [&>div]:mb-4">
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Безопасность:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• 6 подушек безопасности</li>
+                                                <li class="text-xs leading-tight">• ABS + EBD</li>
+                                                <li class="text-xs leading-tight">• ESP + Hill Start Assist</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Интерьер:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• Тканевая обивка сидений</li>
+                                                <li class="text-xs leading-tight">• Климат-контроль</li>
+                                                <li class="text-xs leading-tight">• Подогрев передних сидений</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Мультимедиа:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• 8" сенсорный экран</li>
+                                                <li class="text-xs leading-tight">• Apple CarPlay / Android Auto</li>
+                                                <li class="text-xs leading-tight">• 6 динамиков</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+
+                        <div class="mt-6">
+                            <details class="w-full group space-y-4">
+                                <summary class="list-none cursor-pointer">
+                                    <div class="grid grid-cols-1 xl:grid-cols-5 gap-3 lg:gap-6 items-center bg-white lg:bg-[#fafafa] p-3 lg:p-5 rounded-xl hover:shadow-sm transition-shadow">
+                                        <div class="flex items-center gap-2 justify-center xl:justify-start">
+
+                                            <span class="font-semibold text-base lg:text-lg text-gray-800">Luxury</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="line-through text-base lg:text-lg text-gray-500 hidden xl:block">
+                                                2 700 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="flex justify-center">
+                                            <span class="text-blue-600 font-semibold text-base lg:text-lg flex items-center gap-2 whitespace-nowrap">
+                                                <span class="xl:hidden line-through text-gray-400 text-xs">2 700 000
+                                                    ₽</span> от 2 350 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="text-gray-600 text-sm lg:text-base whitespace-nowrap">
+                                                В кредит от 11 400 ₽/мес.
+                                            </span>
+                                        </div>
+
+                                        <div class="flex flex-col sm:flex-row gap-3 mt-4 xl:mt-0 justify-center xl:justify-start w-full xl:w-auto">
+                                            <a href="./forms/loan.html" data-toggle-timer-container="Credit" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#3366BD] text-white rounded-md hover:bg-[#2a55a0] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                В кредит
+                                            </a>
+                                            <a href="./forms/tradein.html" data-toggle-timer-container="Trade-in" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#dbeafe] text-[#3366bd] rounded-md hover:bg-[#bfdbfe] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                Trade-in
+                                            </a>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="rounded-xl p-4 lg:p-6 mt-[-1px] bg-white lg:bg-[#fafafa]">
+                                    <div class="space-y-3 text-gray-700 columns-1 sm:columns-2 lg:columns-3 [&>div]:break-inside-avoid [&>div]:mb-4">
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Безопасность:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• 8 подушек безопасности</li>
+                                                <li class="text-xs leading-tight">• Адаптивный круиз-контроль</li>
+                                                <li class="text-xs leading-tight">• Система распознавания дорожных знаков
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Интерьер:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• Кожаный салон</li>
+                                                <li class="text-xs leading-tight">• Панорамная крыша</li>
+                                                <li class="text-xs leading-tight">• Электрорегулировка сидений</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Технологии:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• Цифровая приборная панель 12.3"</li>
+                                                <li class="text-xs leading-tight">• Беспроводная зарядка</li>
+                                                <li class="text-xs leading-tight">• Камера 360°</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+
+                        <!-- 2.0 л. 6АКПП (150 л.с.) FWD -->
+                        <h2 class="text-xl lg:text-2xl font-semibold mt-10 mb-6 text-blue-600">
+                            2.0 л. 6АКПП (150 л.с.) FWD
+                        </h2>
+
+                        <div>
+                            <details class="w-full group space-y-4">
+                                <summary class="list-none cursor-pointer">
+                                    <div class="grid grid-cols-1 xl:grid-cols-5 gap-3 lg:gap-6 items-center bg-white lg:bg-[#fafafa] p-3 lg:p-5 rounded-xl hover:shadow-sm transition-shadow">
+                                        <div class="flex items-center gap-2 justify-center xl:justify-start">
+
+                                            <span class="font-semibold text-base lg:text-lg text-gray-800">Comfort</span>
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition-transform duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    d="M19 9l-7 7-7-7" />
+                                            </svg>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="line-through text-base lg:text-lg text-gray-500 hidden xl:block">
+                                                2 100 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="flex justify-center">
+                                            <span class="text-blue-600 font-semibold text-base lg:text-lg flex items-center gap-2 whitespace-nowrap">
+                                                <span class="xl:hidden line-through text-gray-400 text-xs">2 100 000
+                                                    ₽</span> от 1 780 000 ₽
+                                            </span>
+                                        </div>
+
+                                        <div class="text-center">
+                                            <span class="text-gray-600 text-sm lg:text-base whitespace-nowrap">
+                                                В кредит от 8 650 ₽/мес.
+                                            </span>
+                                        </div>
+                                        <div class="flex flex-col sm:flex-row gap-3 mt-4 xl:mt-0 justify-center xl:justify-start w-full xl:w-auto">
+                                            <a href="./forms/loan.html" data-toggle-timer-container="Credit" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#3366BD] text-white rounded-md hover:bg-[#2a55a0] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                В кредит
+                                            </a>
+                                            <a href="./forms/tradein.html" data-toggle-timer-container="Trade-in" class="px-5 py-3 sm:px-6 sm:py-2.5 bg-[#dbeafe] text-[#3366bd] rounded-md hover:bg-[#bfdbfe] transition-colors text-sm font-medium whitespace-nowrap w-full sm:w-auto text-center">
+                                                Trade-in
+                                            </a>
+                                        </div>
+                                    </div>
+                                </summary>
+
+                                <div class="rounded-xl p-4 lg:p-6 mt-[-1px] bg-white lg:bg-[#fafafa]">
+                                    <div class="space-y-3 text-gray-700 columns-1 sm:columns-2 lg:columns-3 [&>div]:break-inside-avoid [&>div]:mb-4">
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Безопасность:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• 6 подушек безопасности</li>
+                                                <li class="text-xs leading-tight">• ABS + EBD</li>
+                                                <li class="text-xs leading-tight">• ESP</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Интерьер:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• Тканевая обивка</li>
+                                                <li class="text-xs leading-tight">• Кондиционер</li>
+                                                <li class="text-xs leading-tight">• Подогрев зеркал</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                            <strong class="text-gray-800 block mb-1 text-sm">Мультимедиа:</strong>
+                                            <ul class="list-none pl-4 space-y-1">
+                                                <li class="text-xs leading-tight">• 7" экран</li>
+                                                <li class="text-xs leading-tight">• Bluetooth</li>
+                                                <li class="text-xs leading-tight">• USB / AUX</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Контент: Характеристики — без изменений -->
+            <div id="content-specs" class="hidden">
+                <!-- Десктопная версия -->
+                <div class="hidden md:block">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 text-center">
+                        <div class="col-span-1"></div>
+                        <div class="font-medium text-base md:text-lg">2.5 л. 6АКПП (180 л.с.) FWD</div>
+                        <div class="font-medium text-base md:text-lg">2.0 л. 6АКПП (150 л.с.) FWD</div>
+                    </div>
+
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="font-bold text-lg md:text-xl mb-3">Двигатель</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="text-gray-700 text-base">Объем двигателя, л</div>
+                                <div class="text-center text-base font-medium">2.5</div>
+                                <div class="text-center text-base font-medium">2</div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <div class="text-gray-700 text-base">Рабочий объем двигателя, см³</div>
+                                <div class="text-center text-base font-medium">2497</div>
+                                <div class="text-center text-base font-medium">1999</div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <div class="text-gray-700 text-base">Тип привода</div>
+                                <div class="text-center text-base font-medium">Передний</div>
+                                <div class="text-center text-base font-medium">Передний</div>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-2">
+                                <div class="text-gray-700 text-base">Мощность, л.с.</div>
+                                <div class="text-center text-base font-medium">180</div>
+                                <div class="text-center text-base font-medium">150</div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-lg md:text-xl mb-3">Кузов</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div class="text-gray-700 text-base">Длина</div>
+                                <div class="text-center text-base font-medium">1860</div>
+                                <div class="text-center text-base font-medium">1860</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Мобильная версия -->
+                <div class="md:hidden space-y-6">
+                    <details class="w-full bg-white rounded-lg shadow-sm">
+                        <summary class="flex justify-between items-center p-4 font-medium text-lg cursor-pointer list-none">
+                            <span>2.5 л. 6АКПП (180 л.с.) FWD</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </summary>
+                        <div class="px-4 pb-4 mt-2">
+                            <h3 class="font-bold text-lg mb-3">Двигатель</h3>
+                            <div class="space-y-2 text-base">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Объем двигателя, л</span>
+                                    <span class="font-medium">2.5</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Рабочий объем, см³</span>
+                                    <span class="font-medium">2497</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Тип привода</span>
+                                    <span class="font-medium">Передний</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Мощность, л.с.</span>
+                                    <span class="font-medium">180</span>
+                                </div>
+                            </div>
+
+                            <h3 class="font-bold text-lg mt-4 mb-3">Кузов</h3>
+                            <div class="space-y-2 text-base">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Длина</span>
+                                    <span class="font-medium">1860</span>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+
+                    <details class="w-full bg-white rounded-lg shadow-sm">
+                        <summary class="flex justify-between items-center p-4 font-medium text-lg cursor-pointer list-none">
+                            <span>2.0 л. 6АКПП (150 л.с.) FWD</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-5 h-5 text-gray-500">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </summary>
+                        <div class="px-4 pb-4 mt-2">
+                            <h3 class="font-bold text-lg mb-3">Двигатель</h3>
+                            <div class="space-y-2 text-base">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Объем двигателя, л</span>
+                                    <span class="font-medium">2</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Рабочий объем, см³</span>
+                                    <span class="font-medium">1999</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Тип привода</span>
+                                    <span class="font-medium">Передний</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Мощность, л.с.</span>
+                                    <span class="font-medium">150</span>
+                                </div>
+                            </div>
+
+                            <h3 class="font-bold text-lg mt-4 mb-3">Кузов</h3>
+                            <div class="space-y-2 text-base">
+                                <div class="flex justify-between">
+                                    <span class="text-gray-700">Длина</span>
+                                    <span class="font-medium">1860</span>
+                                </div>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="p-6 text-white">
+            <div class="container mx-auto space-y-6">
+                <!-- Заголовок -->
+                <h1 class="text-center mb-8 text-[#B1B2B4] font-regular text-4xl sm:text-5xl md:text-6xl lg:text-[52px]">
+                    Рассчитать кредит
+                </h1>
+
+                <!-- Основной контейнер: 2 колонки -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:min-h-[500px]">
+                    <!-- ЛЕВАЯ КОЛОНКА: ФОРМА РАСЧЁТА -->
+                    <div class="bg-[#E9E9E980] rounded-xl p-6 space-y-6 flex flex-col">
+                        <!-- Шаг 1: Выберите авто -->
+                        <div class="space-y-4">
+                            <h2 class="text-[32px] font-medium text-[#282624]">Выберите авто</h2>
+                            <p class="text-[16px] text-[#282624]">Для расчета условий по автокредиту выберите модель и комплектацию
+                            </p>
+
+                            <!-- Выбор модели и комплектации -->
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <select data-select-model data-sync="car-select" class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+                                    <option value="" disabled selected>Выберите модель</option>
+                                    <option value="T77">T77</option>
+                                    <option value="T90">T90</option>
+                                </select>
+
+                                <select data-select-trim data-sync="car-select" class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
+                                    <option value="" disabled selected>Выберите комплектацию</option>
+                                </select>
+                            </div>
+
+                            <div class="mt-4 flex items-center gap-3 md:gap-6">
+                                <label class="block text-sm text-[#282624] mb-1">Стоимость автомобиля:</label>
+                                <span id="carPriceDisplay" class="text-lg font-bold text-[#3366BD]">—</span>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 2: Первоначальный взнос -->
+                        <div class="space-y-4">
+                            <h2 class="text-lg font-medium text-[#282624]">Первоначальный взнос</h2>
+                            <div class="flex items-center gap-2">
+                                <span id="downPaymentAmountDesktop" class="text-xl font-bold text-[#282624]">0 ₽</span>
+                                <span id="downPaymentPercentDesktop" class="text-xl text-[#282624]">(0%)</span>
+                            </div>
+
+                            <div class="relative h-10">
+                                <input type="range" min="0" max="90" value="0" step="10" id="downPaymentSliderDesktop" class="custom-slider w-full bg-white border border-white/40">
+                                <div id="downPaymentTrack" class="slider-track" style="width: 0%;"></div>
+                            </div>
+
+                            <div class="flex justify-between text-[12px] sm:text-xs text-gray-400 sm:mt-1">
+                                <span>0%</span>
+                                <span>10%</span>
+                                <span>20%</span>
+                                <span>30%</span>
+                                <span>40%</span>
+                                <span>50%</span>
+                                <span>60%</span>
+                                <span>70%</span>
+                                <span>80%</span>
+                                <span>90%</span>
+                            </div>
+                        </div>
+
+                        <!-- Шаг 3: Срок кредита -->
+                        <div class="space-y-4">
+                            <h2 class="text-lg font-medium text-[#282624]">Срок кредита</h2>
+                            <div class="flex items-center gap-2">
+                                <span id="loanTermYearsDesktop" class="text-xl font-bold text-[#282624]">6 мес.</span>
+                            </div>
+
+                            <div class="relative h-10">
+                                <input type="range" min="0.5" max="7" value="0.5" step="0.5" id="loanTermSliderDesktop" class="custom-slider w-full bg-white border border-white/40">
+                                <div id="loanTermTrack" class="slider-track" style="width: 0%;"></div>
+                            </div>
+
+                            <div class="flex justify-between mt-4">
+                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="0.5">6 мес.</button>
+                                <button type="button" class="px-4 py-2 bg-[#3366BD] text-white rounded-full text-sm" data-term="7">7 лет</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ПРАВАЯ КОЛОНКА: ЕДИНАЯ КАРТОЧКА -->
+                    <div class="flex flex-col lg:h-full">
+                        <div id="offerCard" class="bg-[#E9E9E980] rounded-xl p-6 space-y-2 sm:space-y-6 flex flex-col lg:flex-grow lg:min-h-0">
+
+                            <!-- Изображение -->
+                            <div class="flex justify-center">
+                                <img src="../assets/auto/Rectangle 244.png" alt="Выберите автомобиль" class="w-full h-auto max-h-64 object-contain rounded-lg" id="carImageDisplay">
+                            </div>
+
+                            <h2 class="text-[24px] font-regular text-[#282624]">Наше предложение</h2>
+
+                            <div class="grid grid-cols-2 gap-4 text-sm flex-1">
+                                <div>
+                                    <div class="text-[#282624] text-[16px] mb-1">Сумма кредита</div>
+                                    <div class="text-[#3A7BC0] text-[16px] font-bold" id="creditAmount">—</div>
+                                </div>
+                                <div>
+                                    <div class="text-[#282624] text-[16px] mb-1">Срок кредита</div>
+                                    <div class="text-[#3A7BC0] text-[16px] font-bold" id="loanTermDisplay">—</div>
+                                </div>
+                                <div>
+                                    <div class="text-[#282624] text-[16px] mb-1">Первоначальный взнос</div>
+                                    <div class="text-[#3A7BC0] font-bold" id="downPaymentDisplay">—</div>
+                                </div>
+                                <div>
+                                    <div class="text-[#282624] text-[16px] mb-1">Ежемесячный платёж</div>
+                                    <div class="text-[#3A7BC0] font-bold" id="monthlyPaymentDisplay">—</div>
+                                </div>
+                            </div>
+
+                            <button type="button" data-action="open-booking-modal" class="w-full py-3 bg-[#3366BD] text-white font-semibold rounded-lg hover:bg-[#2a55a0] transition flex items-center justify-center gap-2">
+                                Получить предложение →
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="relative bg-cover bg-center bg-right min-h-[500px] md:min-h-[600px] lg:min-h-[829px] flex flex-col justify-center px-5 sm:px-10 md:px-16 lg:px-20 text-white" style="background-image: url('../assets/banners/bf84c559c47e9e21c214bf50d6f85c11531a9582.png')">
+
+            <!-- Затемненный оверлей -->
+            <div class="absolute inset-0 bg-black/40 z-10"></div>
+
+            <!-- Контент -->
+            <div class="relative z-20 max-w-3xl p-4">
+                <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-[36px] font-semibold leading-tight mb-4 md:mb-5">
+                    Независимость – официальный дилер SOLARIS
+                </h1>
+
+                <p class="text-sm sm:text-base md:text-[16px] leading-relaxed mb-3 md:mb-4">
+                    Покупка SOLARIS в «Независимости» — это уверенность на каждом километре.
+                </p>
+
+                <p class="text-sm sm:text-base md:text-[16px] leading-relaxed mb-3 md:mb-4">
+                    Мы заботимся о вашем комфорте на всех этапах владения автомобилем: от быстрой записи на тест-драйв и персонального подбора комплектации до оформления кредита, рассрочки или страхования.
+                </p>
+
+                <p class="text-sm sm:text-base md:text-[16px] leading-relaxed mb-5 md:mb-6">
+                    Наши специалисты помогут выгодно обменять автомобиль по трейд-ин, оформить сделку максимально удобно и предложат оптимальные условия на сервисное обслуживание.<br class="hidden sm:block"> Приходите в автосалон «Независимость» или оставьте
+                    заявку онлайн — мы свяжемся с вами в удобное время и подготовим персональное предложение, которое сделает покупку Solaris ещё приятнее.
+                </p>
+
+                <a href="#" class="inline-block bg-gradient-to-r from-[#20365A] to-[#418FDE] hover:bg-blue-700 text-white text-center py-3 px-6 md:py-3 md:px-8 rounded-full font-medium text-xs md:text-sm uppercase tracking-wider transition-colors duration-300">
+                Перейти в каталог авто
+            </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white pt-12 pb-8">
+        <div class="w-full px-6 md:px-12 lg:px-24 mx-auto">
+
+            <!-- Логотип -->
+            <div class="mb-10 flex items-center space-x-2">
+                <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8s w-auto flex-shrink-0" />
+                <span class="text-lg font-medium uppercase tracking-wide">НЕЗАВИСИМОСТЬ</span>
+            </div>
+
+            <!-- Основной контент: 2 колонки -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+
+                <!-- Колонка "МОДЕЛИ" -->
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Модели</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Solaris HC</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris KRX</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris KRS</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris HS</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка "ПОКУПАТЕЛЯМ" -->
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Покупателям</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Модели</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Кредит</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Trade-in</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Спецпредложения</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mb-8 text-xs leading-relaxed text-gray-300">
+                Производитель сохраняет за собой исключительное право в любое время вносить дополнения, изменения, обновления в информацию о параметрах продукта, конфигурации, материалы, цвета и в другую информацию о транспортном средстве без предварительного уведомления.
+                Приобретение любой продукции бренда Solaris осуществляется в соответствии с условиями индивидуального договора купли-продажи. Представленное изображение, цвет, технические характеристики и комплектация автомобилей могут отличаться от реализуемого.
+                Упоминаемое оборудование может быть опциональным. Для получения подробной информации об актуальных ценах на продукцию Solaris и наличии автомобилей обращайтесь к официальным дилерам. Не является публичной офертой.
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs space-y-4 sm:space-y-0">
+                <a href="#" class="hover:text-gray-300">Политика конфиденциальности</a>
+                <a href="#" class="hover:text-gray-300">Контакты</a>
+            </div>
+
+        </div>
+    </footer>
+    <!-- Lightbox Modal -->
+
+
+    <div id="imageModal" class="fixed inset-0 bg-black bg-opacity-90 z-50 hidden items-center justify-center p-4">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <!-- Кнопка закрытия -->
+            <button id="closeModal" class="absolute top-4 right-4 z-10 text-white text-3xl font-bold bg-black bg-opacity-50 rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-75">
+                &times;
+            </button>
+
+            <!-- Изображение -->
+            <div class="relative max-w-4xl max-h-full flex items-center justify-center">
+                <img id="modalImage" src="" alt="Увеличенное изображение" class="max-w-full max-h-[90vh] object-contain" />
+            </div>
+
+            <!-- Кнопки навигации -->
+            <button id="prevBtn" class="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 focus:outline-none text-xl">
+                ‹
+            </button>
+            <button id="nextBtn" class="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-75 focus:outline-none text-xl">
+                ›
+            </button>
+        </div>
+    </div>
+    <script src="../scripts/components/sliders/range/creditBlock.js" type="module"></script>
+    <script src="../scripts/modules/iterations/changeColors.js"></script>
+    <script src="../scripts/components/modals/dialog/dropModelsDown.js"></script>
+    <script src="../scripts/components/modals/dialogs/picture/watchPicture.js"></script>
+    <script src="../scripts/components/modals/dialog/yourData.js"></script>
+    <script src="https://unpkg.com/imask@7.0.0/dist/imask.min.js"></script>
+    <script src="../scripts/utils/validation.js"></script>
+
+    <!-- JavaScript для переключения вкладок -->
+    <script>
+        function switchTab(tabName) {
+            // Скрыть оба контента
+            document.getElementById('content-completions').classList.add('hidden');
+            document.getElementById('content-specs').classList.add('hidden');
+
+            // Показать нужный
+            if (tabName === 'completions') {
+                document.getElementById('content-completions').classList.remove('hidden');
+                document.getElementById('tab-completions').classList.replace('border-transparent', 'border-black');
+                document.getElementById('tab-specs').classList.replace('border-black', 'border-transparent');
+            } else if (tabName === 'specs') {
+                document.getElementById('content-specs').classList.remove('hidden');
+                document.getElementById('tab-specs').classList.replace('border-transparent', 'border-black');
+                document.getElementById('tab-completions').classList.replace('border-black', 'border-transparent');
+            }
+        }
+    </script>
+    <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script>
+</body>
+
+</html>

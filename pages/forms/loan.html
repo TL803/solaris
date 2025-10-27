@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О компании</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="../../styles/checkbox.css">
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        customGray: '#1a1a1a',
+                        lightGray: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    },
+
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="font-sans  text-[#01101B]">
+
+
+    <header class="bg-gradient-to-r w-full from-[#6A8DBA] fixed top-0 left-0 to-[#2C3E50] text-white z-[100]" style="box-shadow: none;">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Логотип и название -->
+                <a href="./" class="flex-shrink-0 flex items-center min-w-0">
+                    <!-- Логотип -->
+                    <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8 w-auto flex-shrink-0" />
+
+                    <!-- Разделитель -->
+                    <span class="mx-3 text-white">|</span>
+
+                    <!-- Текст -->
+                    <span class="font-semibold text-[12px] sm:text-base whitespace-nowrap">
+                        НЕЗАВИСИМОСТЬ
+                    </span>
+                </a>
+
+                <!-- Десктоп: меню -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <nav class="flex items-center space-x-6">
+                        <p data-open-modal="models-modal" class="cursor-pointer hover:text-gray-200 text-sm font-medium whitespace-nowrap">
+                            Модели
+                        </p>
+                        <a href="./cars.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Авто в
+                            наличии</a>
+                        <a href="./loan.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Кредит</a>
+                        <a href="./tradein.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Trade-in</a>
+                        <a href="./stocks.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
+                        <a href="./contacts.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Контакты</a>
+                    </nav>
+                </div>
+
+                <!-- Мобильное меню: только бургер -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <img src="../assets/mobile/Vector (24).svg" alt="Vector (24).svg" />
+                    <button id="mobile-menu-button" class="p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg z-50">
+            <div id="mobile-main-menu" class="px-4 pt-2 pb-4 space-y-1">
+                <p data-open-mobile-models class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200 cursor-pointer flex items-center justify-between">
+                    Модели
+                    <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </p>
+                <a href="./cars.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Авто
+                    в наличии</a>
+                <a href="./loan.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Кредит</a>
+                <a href="./tradein.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Trade-in</a>
+                <a href="./stocks.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Спецпредложения</a>
+                <a href="./contacts.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Контакты</a>
+            </div>
+
+            <!-- Меню моделей -->
+            <div id="mobile-models-menu" class="hidden px-4 pt-2 pb-3">
+                <button id="mobile-models-back" class="flex items-center px-3 py-2 text-base font-medium text-white hover:text-gray-200 mb-3 cursor-pointer">
+                    <svg class="w-4 h-4 mr-1.5 transform rotate-180" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Назад
+                </button>
+
+                <div class="space-y-1">
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="models-dropdown" class="absolute left-0 top-14 right-0 mt-2 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg rounded-md hidden z-50 ">
+            <div class="py-2">
+                <a href="#" class="flex justify-center items-center px-4 py-3 transition">
+                    <img src="../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                    <div>
+                        <div class="font-medium text-white">Solaris KRX</div>
+                        <div class="text-xs text-gray-100">от 2 129 990 ₽*</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Dropdown для "Модели" -->
+    <div id="models-dropdown" class="absolute left-0 top-14 right-0 mt-2 bg-white shadow-lg rounded-md hidden z-50 border border-gray-200">
+        <div class="py-2">
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый T90.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый Т90</div>
+                    <div class="text-xs text-gray-500">от 2 129 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/Новый B70.png" alt="Новый В70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый В70</div>
+                    <div class="text-xs text-gray-500">от 1 849 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T55.png" alt="T55" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T55</div>
+                    <div class="text-xs text-gray-500">от 1 561 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/B70.png" alt="B70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">B70</div>
+                    <div class="text-xs text-gray-500">от 1 724 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../assets/models/T77.png" alt="T77" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T77</div>
+                    <div class="text-xs text-gray-500">от 1 924 000 ₽*</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <main class="bg-white py-[205px] px-4 md:px-8 max-w-4xl mx-auto space-y-4">
+        <section class="container mx-auto">
+            <h1 class="text-[36px] md:text-[40px] text-[#B1B2B4] font-light text-center mb-4">Выгода до 25% по госпрограмме автокредитовани</h1>
+            <p class="text-[16px] text-[#282624] text-center mb-8">Приобретайте Solaris с выгодой до 25% благодаря участию в госпрограмме автокредитования.</p>
+    
+            <!-- Форма -->
+            <form action="" data-car-form class="grid grid-cols-1 gap-x-6 gap-y-6 max-w-4xl mx-auto w-full">
+    
+                <!-- Модель -->
+                <div>
+                    <label class="block text-[12px] font-bold text-[#282624] mb-2">МОДЕЛЬ*</label>
+                    <div class="relative">
+                        <select name="model" class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 appearance-none bg-white">
+                            <option value="">Выберите</option>
+                            <option value="t55">T55</option>
+                            <option value="b70">B70</option>
+                            <option value="t77">T77</option>
+                            <option value="new_t90">Новый T90</option>
+                            <option value="new_b70">Новый B70</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3">
+                            <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Имя и телефон в ряд на md+ -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-[12px] font-bold text-[#282624] mb-2">ИМЯ*</label>
+                        <input type="text" placeholder="Введите" data-validate="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-[12px] font-bold text-[#282624] mb-2">ТЕЛЕФОН*</label>
+                        <input type="text" placeholder="+7 (XXX) XXX-XX-XX" data-validate="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+    
+                <!-- Чекбокс согласия (оригинальный, как был) -->
+                <div class="flex items-start space-x-3">
+                    <label class="custom-checkbox-square">
+                        <input type="checkbox" id="myCheckbox" data-validate="required" checked />
+                        <span class="checkmark">✓</span>
+                    </label>
+                    <span class="text-sm text-gray-300 leading-relaxed">
+                        Согласен с <a href="./privacypolicy.html" class="text-[#3366BD] underline hover:text-[#2a55a0]">политикой обработки персональных данных</a>
+                    </span>
+                </div>
+    
+                <!-- Кнопка отправить -->
+                <button type="submit" class="w-full px-6 py-3 bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white font-medium rounded-lg hover:from-[#1a2d4a] hover:to-[#3a7dcf] transition flex items-center justify-center gap-2">
+                    ОТПРАВИТЬ →
+                </button>
+    
+            </form>
+        </section>
+    </main>
+    <div id="success-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-gray-900 rounded-2xl p-8 sm:p-12 w-full max-w-md text-center text-white">
+            <h2 class="text-xl sm:text-2xl font-medium mb-4">
+                Ваша заявка успешно отправлена!
+            </h2>
+            <p class="text-sm sm:text-base leading-relaxed mb-8">
+                Мы уже готовим для вас персональное предложение.<br> Совсем скоро наш менеджер свяжется с вами, чтобы обсудить детали и помочь приблизить момент, когда ключи от нового автомобиля Bestune окажутся в ваших руках.
+            </p>
+            <button id="close-modal" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-xl w-full max-w-[300px] transition-colors duration-200">
+      Отлично
+    </button>
+        </div>
+    </div>
+    <footer class="bg-gradient-to-r from-[#20365A] to-[#418FDE] text-white pt-12 pb-8">
+        <div class="w-full px-6 md:px-12 lg:px-24 mx-auto">
+
+            <!-- Логотип -->
+            <div class="mb-10 flex items-center space-x-2">
+                <img src="../assets/common/Clip path group.svg" alt="SOLARIS" class="h-3 sm:h-6 md:h-8s w-auto flex-shrink-0" />
+                <span class="text-lg font-medium uppercase tracking-wide">НЕЗАВИСИМОСТЬ</span>
+            </div>
+
+            <!-- Основной контент: 2 колонки -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 mb-10">
+
+                <!-- Колонка "МОДЕЛИ" -->
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Модели</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Solaris HC</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris KRX</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris KRS</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Solaris HS</a></li>
+                    </ul>
+                </div>
+
+                <!-- Колонка "ПОКУПАТЕЛЯМ" -->
+                <div>
+                    <h3 class="text-sm font-semibold uppercase tracking-wider mb-6">Покупателям</h3>
+                    <ul class="space-y-3 text-sm">
+                        <li><a href="#" class="hover:text-gray-300">Модели</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Кредит</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Trade-in</a></li>
+                        <li><a href="#" class="hover:text-gray-300">Спецпредложения</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="mb-8 text-xs leading-relaxed text-gray-300">
+                Производитель сохраняет за собой исключительное право в любое время вносить дополнения, изменения, обновления в информацию о параметрах продукта, конфигурации, материалы, цвета и в другую информацию о транспортном средстве без предварительного уведомления.
+                Приобретение любой продукции бренда Solaris осуществляется в соответствии с условиями индивидуального договора купли-продажи. Представленное изображение, цвет, технические характеристики и комплектация автомобилей могут отличаться от реализуемого.
+                Упоминаемое оборудование может быть опциональным. Для получения подробной информации об актуальных ценах на продукцию Solaris и наличии автомобилей обращайтесь к официальным дилерам. Не является публичной офертой.
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between text-xs space-y-4 sm:space-y-0">
+                <a href="#" class="hover:text-gray-300">Политика конфиденциальности</a>
+                <a href="#" class="hover:text-gray-300">Контакты</a>
+            </div>
+
+        </div>
+    </footer>
+    <script src="https://unpkg.com/imask@7.0.0/dist/imask.min.js"></script>
+
+    <script src="../../scripts/utils/validation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('[data-car-form]');
+            const modal = document.getElementById('success-modal');
+            const closeButton = document.getElementById('close-modal');
+
+            // Маска для телефона
+            const phoneInput = document.querySelector('input[data-validate="phone"]');
+            if (phoneInput) {
+                IMask(phoneInput, {
+                    mask: '+{7} (000) 000-00-00'
+                });
+            }
+
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+
+                    const nameInput = document.querySelector('input[data-validate="name"]');
+                    const phoneInput = document.querySelector('input[data-validate="phone"]');
+                    const checkbox = document.querySelector('input[data-validate="required"]');
+
+                    let isValid = true;
+
+                    // Валидация имени
+                    if (!nameInput.value.trim()) {
+                        isValid = false;
+                        nameInput.classList.add('border-red-500');
+                    } else {
+                        nameInput.classList.remove('border-red-500');
+                    }
+
+                    // Валидация телефона
+                    if (!phoneInput.value || phoneInput.value.includes('_')) {
+                        isValid = false;
+                        phoneInput.classList.add('border-red-500');
+                    } else {
+                        phoneInput.classList.remove('border-red-500');
+                    }
+
+                    // Валидация чекбокса
+                    if (!checkbox.checked) {
+                        isValid = false;
+                        checkbox.parentElement.classList.add('border-red-500');
+                    } else {
+                        checkbox.parentElement.classList.remove('border-red-500');
+                    }
+
+                    if (isValid) {
+                        // Показать модалку
+                        modal.classList.remove('hidden');
+                        document.body.style.overflow = 'hidden';
+
+                        // Очистить форму
+                        form.reset();
+                        if (phoneInput) phoneInput.value = ''; // IMask не сбрасывается через reset()
+
+                        // Сброс ошибок
+                        nameInput.classList.remove('border-red-500');
+                        phoneInput.classList.remove('border-red-500');
+                        checkbox.parentElement.classList.remove('border-red-500');
+                    }
+                });
+            }
+
+            // Закрытие модалки
+            function closeModal() {
+                modal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+
+            if (closeButton) {
+                closeButton.addEventListener('click', closeModal);
+            }
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+
+</body>
+
+</html>
