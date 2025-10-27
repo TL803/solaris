@@ -131,17 +131,25 @@ document.addEventListener('DOMContentLoaded', function() {
     // Заполнить комплектации по модели
     function populateTrims() {
         const model = modelSelect.value;
-        trimSelect.innerHTML = '<option value="" disabled selected>Выберите комплектацию</option>';
-
+        
         if (!model || !carData[model]) {
+            // Если модель не выбрана или не найдена
             selectedModel = null;
             carPrice = 0;
+            trimSelect.innerHTML = '<option value="" disabled selected>Сначала выберите модель</option>';
+            trimSelect.disabled = true;
             updateAll();
             return;
         }
 
+        // Активируем select комплектаций
+        trimSelect.disabled = false;
         selectedModel = model;
         const trims = carData[model];
+        
+        // Очищаем и заполняем select комплектаций
+        trimSelect.innerHTML = '<option value="" disabled selected>Выберите комплектацию</option>';
+        
         for (const [trim, price] of Object.entries(trims)) {
             const option = document.createElement('option');
             option.value = price;
