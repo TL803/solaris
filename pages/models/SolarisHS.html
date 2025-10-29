@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>О компании</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="../styles/slider.css">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <link rel="stylesheet" href="../styles/checkbox.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0066cc',
+                        customGray: '#1a1a1a',
+                        lightGray: '#333333'
+                    },
+                    fontFamily: {
+                        sans: ['Mulish', 'ui-sans-serif', 'system-ui', 'sans-serif']
+                    },
+
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="font-sans  text-[#01101B]">
+
+
+
+    <header class="bg-gradient-to-r w-full from-[#6A8DBA] fixed top-0 left-0 to-[#2C3E50] text-white z-[100]"
+        style="box-shadow: none;">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between h-16">
+                <!-- Логотип и название -->
+                <a href="./" class="flex-shrink-0 flex items-center min-w-0">
+                    <!-- Логотип -->
+                    <img src="../../assets/common/Clip path group.svg" alt="SOLARIS"
+                        class="h-3 sm:h-6 md:h-8 w-auto flex-shrink-0" />
+
+                    <!-- Разделитель -->
+                    <span class="mx-3 text-white">|</span>
+                    <!-- Текст -->
+                    <span class="font-semibold text-[12px] sm:text-base whitespace-nowrap">
+                        НЕЗАВИСИМОСТЬ
+                    </span>
+                </a>
+
+                <!-- Десктоп: меню -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <nav class="flex items-center space-x-6">
+                        <p data-open-modal="models-modal"
+                            class="cursor-pointer hover:text-gray-200 text-sm font-medium whitespace-nowrap">
+                            Модели
+                        </p>
+                        <a href="./cars.html" class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Авто в
+                            наличии</a>
+                        <a href="./loan.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Кредит</a>
+                        <a href="./tradein.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Trade-in</a>
+                        <a href="./stocks.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Спецпредложения</a>
+                        <a href="./contacts.html"
+                            class="hover:text-gray-200 text-sm font-medium whitespace-nowrap">Контакты</a>
+                    </nav>
+                </div>
+
+                <!-- Мобильное меню: только бургер -->
+                <div class="lg:hidden flex items-center space-x-4">
+                    <img src="../../assets/mobile/Vector (24).svg" alt="Vector (24).svg" />
+                    <button id="mobile-menu-button"
+                        class="p-2 rounded-md text-white hover:text-gray-200 focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Мобильное меню -->
+        <div id="mobile-menu"
+            class="hidden lg:hidden absolute top-16 left-0 right-0 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg z-50">
+            <div id="mobile-main-menu" class="px-4 pt-2 pb-4 space-y-1">
+                <p data-open-mobile-models
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200 cursor-pointer flex items-center justify-between">
+                    Модели
+                    <svg class="w-4 h-4 ml-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </p>
+                <a href="./cars.html" class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Авто
+                    в наличии</a>
+                <a href="./loan.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Кредит</a>
+                <a href="./tradein.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Trade-in</a>
+                <a href="./stocks.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Спецпредложения</a>
+                <a href="./contacts.html"
+                    class="block px-3 py-2 text-base font-medium text-white hover:text-gray-200">Контакты</a>
+            </div>
+
+            <!-- Меню моделей -->
+            <div id="mobile-models-menu" class="hidden px-4 pt-2 pb-3">
+                <button id="mobile-models-back"
+                    class="flex items-center px-3 py-2 text-base font-medium text-white hover:text-gray-200 mb-3 cursor-pointer">
+                    <svg class="w-4 h-4 mr-1.5 transform rotate-180" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    Назад
+                </button>
+
+                <div class="space-y-1">
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                    <a href="#" class="flex items-center px-3 py-2.5 hover:bg-gray-800 transition ">
+                        <img src="../../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-8 w-auto mr-2.5">
+                        <div>
+                            <div class="font-medium text-white text-sm">Новый Т90</div>
+                            <div class="text-[10px] text-gray-300">от 2 129 990 ₽*</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+        <div id="models-dropdown"
+            class="absolute left-0 top-14 right-0 mt-2 bg-gradient-to-r from-[#6A8DBA] to-[#2C3E50] shadow-lg rounded-md hidden z-50 ">
+            <div class="py-2">
+                <a href="#" class="flex justify-center items-center px-4 py-3 transition">
+                    <img src="../../assets/auto/Rectangle 243.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                    <div>
+                        <div class="font-medium text-white">Solaris KRX</div>
+                        <div class="text-xs text-gray-100">от 2 129 990 ₽*</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- Dropdown для "Модели" -->
+    <div id="models-dropdown"
+        class="absolute left-0 top-14 right-0 mt-2 bg-white shadow-lg rounded-md hidden z-50 border border-gray-200">
+        <div class="py-2">
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../../assets/models/Новый T90.png" alt="Новый Т90" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый Т90</div>
+                    <div class="text-xs text-gray-500">от 2 129 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../../assets/models/Новый B70.png" alt="Новый В70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">Новый В70</div>
+                    <div class="text-xs text-gray-500">от 1 849 990 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../../assets/models/T55.png" alt="T55" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T55</div>
+                    <div class="text-xs text-gray-500">от 1 561 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../../assets/models/B70.png" alt="B70" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">B70</div>
+                    <div class="text-xs text-gray-500">от 1 724 000 ₽*</div>
+                </div>
+            </a>
+            <a href="#" class="flex justify-center items-center px-4 py-3 hover:bg-gray-50 transition">
+                <img src="../../assets/models/T77.png" alt="T77" class="h-12 w-auto mr-3">
+                <div>
+                    <div class="font-medium text-gray-900">T77</div>
+                    <div class="text-xs text-gray-500">от 1 924 000 ₽*</div>
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <main class="container mx-auto px-4 py-6">
+        <!-- Навигация назад -->
+        <div class="mb-6">
+            <a href="#" class="flex items-center text-sm text-gray-600 hover:text-blue-600">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                </svg>
+                Назад к списку
+            </a>
+        </div>
+
+        <!-- Заголовок модели -->
+        <div class="text-center mb-6">
+            <h1 class="text-3xl font-bold text-[#282624]">Solaris HS</h1>
+            <p class="text-lg text-gray-600">2.0 (149,6 л.с.) 4WD</p>
+        </div>
+
+        <!-- Основной блок: изображение + характеристики -->
+        <div class="flex flex-col lg:flex-row gap-8">
+
+            <!-- Изображение автомобиля -->
+            <!-- Изображение автомобиля -->
+            <div class="lg:w-2/3">
+                <div class="bg-gray-100 rounded-xl p-4 mb-4">
+                    <!-- Заменили: добавили id="car-image" -->
+                    <img id="car-image" src="../../assets/auto/Rectangle 243.png" alt="Solaris HS"
+                        class="w-full h-auto rounded-lg">
+                </div>
+
+                <!-- Миниатюры изображений -->
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <!-- (оставляем как есть — скрипт к ним не относится) -->
+                    <img src="https://via.placeholder.com/100x70?text=Mini1" alt="Миниатюра 1"
+                        class="w-20 h-14 object-cover rounded border border-gray-300 cursor-pointer hover:border-blue-500">
+                    <img src="https://via.placeholder.com/100x70?text=Mini2" alt="Миниатюра 2"
+                        class="w-20 h-14 object-cover rounded border border-gray-300 cursor-pointer hover:border-blue-500">
+                    <img src="https://via.placeholder.com/100x70?text=Mini3" alt="Миниатюра 3"
+                        class="w-20 h-14 object-cover rounded border border-gray-300 cursor-pointer hover:border-blue-500">
+                    <img src="https://via.placeholder.com/100x70?text=Mini4" alt="Миниатюра 4"
+                        class="w-20 h-14 object-cover rounded border border-gray-300 cursor-pointer hover:border-blue-500">
+                    <img src="https://via.placeholder.com/100x70?text=Mini5" alt="Миниатюра 5"
+                        class="w-20 h-14 object-cover rounded border border-gray-300 cursor-pointer hover:border-blue-500">
+                </div>
+
+                <!-- Цвета автомобиля -->
+                <!-- Заменили: добавили id="colors-container", сохранили обёртку и классы -->
+                <div id="colors-container" class="flex flex-wrap gap-2">
+                    <!-- Сюда JS вставит цветовые блоки -->
+                </div>
+            </div>
+
+            <!-- Блок характеристик и цены -->
+            <div class="lg:w-1/3 space-y-6">
+                <!-- Характеристики -->
+                <div class="bg-white rounded-xl p-5 shadow-sm">
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <img src="../../assets/charapters/Vector (25).svg" alt="Двигатель" class="w-5 h-5">
+                                <span class="text-[#282624]">Двигатель</span>
+                            </div>
+                            <span class="text-[#282624] font-medium">1.5 160 л.с.</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <img src="../../assets/charapters/Vector (26).svg" alt="Трансмиссия" class="w-5 h-5">
+                                <span class="text-[#282624]">Трансмиссия</span>
+                            </div>
+                            <span class="text-[#282624] font-medium">7DCT</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <img src="../../assets/charapters/Vector (28).svg" alt="Привод" class="w-5 h-5">
+                                <span class="text-[#282624]">Привод</span>
+                            </div>
+                            <span class="text-[#282624] font-medium">Передний (2WD)</span>
+                        </div>
+                        <div class="flex justify-between items-center p-3 bg-gray-50 rounded-lg">
+                            <div class="flex items-center gap-2">
+                                <img src="../../assets/charapters/Vector (27).svg" alt="Комплектация" class="w-5 h-5">
+                                <span class="text-[#282624]">Комплектация</span>
+                            </div>
+                            <span class="text-[#282624] font-medium">PRESTIGE PLUS (DCT) (t77)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Цена -->
+                <div class="bg-white rounded-xl p-5 shadow-sm">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-sm text-gray-600">Стоимость</span>
+                        <div class="flex items-center gap-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9M9 9M9 9l6 6m6-6l-6 6" />
+                            </svg>
+                            <span class="text-sm text-gray-600">Сравнение</span>
+                        </div>
+                    </div>
+                    <div class="text-2xl font-bold text-blue-700 mb-1">2 036 000 ₽</div>
+                    <div class="text-xs text-gray-500">Платеж от 11 444 ₽/месяц</div>
+                </div>
+
+                <!-- Кнопки -->
+                <!-- Кнопки -->
+                <div class="flex flex-col gap-3 w-full">
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a href="./forms/testdrive.html"
+                            class="flex-1 px-5 py-3 bg-blue-100 text-blue-600 rounded-lg hover:bg-blue-200 transition font-medium text-sm sm:text-[15px] text-center">
+                            ЗАПИСАТЬСЯ НА ТЕСТ-ДРАЙВ
+                        </a>
+                        <a href="./forms/tradein.html"
+                            class="flex-1 px-5 py-3 border-2 border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition font-medium text-sm sm:text-[15px] text-center">
+                            Забронировать
+                        </a>
+                    </div>
+                    <a href="#loan-page"
+                        class="w-full px-5 py-3 bg-[#3366BD] text-white rounded-lg hover:bg-[#2a55a0] transition font-medium text-sm sm:text-[15px] text-center">
+                        Авто в наличии
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="../../scripts/modules/iterations/changeColors.js"></script>
+</body>
+
+</html>

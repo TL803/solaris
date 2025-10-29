@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
         colors.forEach((color, index) => {
             const colorElem = document.createElement('div');
-            colorElem.className = 'w-6 h-6 rounded border-2 border-gray-300 cursor-pointer';
+            colorElem.className = 'w-[46px] h-[46px] rounded-xl border-2 border-gray-300 cursor-pointer';
             colorElem.style.backgroundColor = color.hex;
             colorContainer.appendChild(colorElem);
         });

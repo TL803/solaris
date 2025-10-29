@@ -236,18 +236,22 @@
                                 комплектацию</p>
 
                             <div class="flex flex-col sm:flex-row gap-4">
-                                <select data-select-model
-                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer">
-                                    <option value="" disabled selected>Выберите модель</option>
-                                    <option value="T77">FAW T77</option>
-                                    <option value="T90">FAW T90</option>
-                                </select>
+                                <div class="w-full sm:w-auto flex-1">
+                                    <select data-select-model
+                                        class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black bg-white appearance-none cursor-pointer">
+                                        <option value="" disabled selected>Выберите модель</option>
+                                        <option value="T77">FAW T77</option>
+                                        <option value="T90">FAW T90</option>
+                                    </select>
+                                </div>
 
-                                <select data-select-trim
-                                    class="flex-1 p-2 bg-gray-100 text-black h-[46px] rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-[#3366BD] text-sm appearance-none cursor-pointer"
-                                    disabled>
-                                    <option value="" disabled selected>Сначала выберите модель</option>
-                                </select>
+                                <div class="w-full sm:w-auto flex-1">
+                                    <select data-select-trim
+                                        class="w-full px-4 py-3 pr-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black bg-white appearance-none cursor-pointer"
+                                        disabled>
+                                        <option value="" disabled selected>Сначала выберите модель</option>
+                                    </select>
+                                </div>
                             </div>
 
                             <div class="mt-4 flex items-center gap-3 md:gap-6">

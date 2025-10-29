@@ -169,7 +169,7 @@ const cars = [
         link: 'avaliableauto.html'
     }, {
         status: 'В пути',
-        img: '../assets/auto/Rectangle 243.png', // замените на реальный путь к оранжевой машине
+        img: '../assets/auto/Rectangle 243.png',
         title: 'Solaris HC',
         engine: '2.0(149,6 л.с.)',
         drive: '4WD',
@@ -206,7 +206,6 @@ function getStatusColor(status) {
 
 function createCarCard(car) {
     const carElement = document.createElement('div');
-    // Увеличенные внутренние отступы
     carElement.className = 'bg-white rounded-xl shadow-sm border border-gray-100 p-5 sm:p-6 flex flex-col hover:shadow-md transition-shadow duration-300';
 
     const engineDrive = `${car.engine} ${car.drive}`;
