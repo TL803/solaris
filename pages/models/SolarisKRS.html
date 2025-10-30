@@ -1089,120 +1089,259 @@
 
         <!-- Заголовок -->
 
-<section class="py-8 px-4 bg-gray-800">
-    <!-- Заголовок "ТЕХНОЛОГИИ" -->
-    <h1 class="text-center text-gray-400 text-xl sm:text-[48px] font-light uppercase tracking-wider mb-6">
-        Технологии
-    </h1>
+<section class="py-8 px-4">
+  <!-- Заголовок "ТЕХНОЛОГИИ" -->
+  <h1 class="text-center text-gray-400 text-xl sm:text-[48px] font-light uppercase tracking-wider mb-6">
+    Технологии
+  </h1>
 
-    <!-- Навигационные табы -->
-    <div class="flex flex-wrap justify-center gap-2 mb-6 bg-gray-100 rounded-full p-1 w-max px-4 mx-auto">
-        <button class="px-4 py-2 text-sm sm:text-base font-medium rounded-full bg-blue-600 text-white">
-            Двигатель
-        </button>
-        <button class="px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
-            Трансмиссия
-        </button>
-        <button class="px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
-            Адаптация к российским дорогам
-        </button>
-        <button class="px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
-            Качество производства
-        </button>
+  <!-- Навигационные табы -->
+  <div class="flex flex-wrap justify-center gap-2 mb-6 bg-gray-100 rounded-full p-1 w-max px-4 mx-auto">
+    <button data-tab="engine" class="tab-btn px-4 py-2 text-sm sm:text-base font-medium rounded-full bg-blue-600 text-white">
+      Двигатель
+    </button>
+    <button data-tab="transmission" class="tab-btn px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
+      Трансмиссия
+    </button>
+    <button data-tab="roads" class="tab-btn px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
+      Адаптация к российским дорогам
+    </button>
+    <button data-tab="quality" class="tab-btn px-4 py-2 text-sm sm:text-base font-medium rounded-full text-gray-700 hover:bg-gray-200 transition">
+      Качество производства
+    </button>
+  </div>
+
+  <!-- Контейнер для карточек -->
+  <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg h-auto">
+    <!-- Карточка: Двигатель -->
+    <div id="card-engine" class="tab-content active">
+      <img src="../../assets/CarModelsPics/KRS/feeb045a30adcff298e642e2826408f4bb89db9e.png"
+           alt="Solaris KRX экстерьер" class="w-full h-auto object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 text-white max-w-xs">
+        <h2 class="text-xl sm:text-2xl font-bold mb-2">Двигатель</h2>
+        <p class="text-sm sm:text-base opacity-90 leading-relaxed">
+          Двигатель 1,6 литра устанавливается на современные автомобили Solaris, предлагая отличную производительность и экономичность.
+        </p>
+      </div>
+      <div class="absolute top-4 right-4 text-white text-right space-y-6">
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold">6.6</div>
+          <div class="text-xs sm:text-sm opacity-90">л/100 км</div>
+          <div class="text-xs sm:text-sm opacity-90">расход топлива</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold">123</div>
+          <div class="text-xs sm:text-sm opacity-90">л. с.</div>
+          <div class="text-xs sm:text-sm opacity-90">мощность двигателя</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-bold">1591</div>
+          <div class="text-xs sm:text-sm opacity-90">см³</div>
+          <div class="text-xs sm:text-sm opacity-90">объем</div>
+        </div>
+      </div>
     </div>
 
-    <!-- Основной блок с изображением и текстом (заглушка) -->
-    <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg mb-8">
-        <!-- Изображение автомобиля -->
-        <img src="../../assets/CarModelsPics/KRS/feeb045a30adcff298e642e2826408f4bb89db9e.png"
-            alt="Solaris KRX экстерьер" class="w-full h-auto object-cover">
-
-        <!-- Полупрозрачный градиент поверх изображения -->
-        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-
-        <!-- Блок "Двигатель" — слева внизу -->
-        <div class="absolute bottom-4 left-4 text-white max-w-xs">
-            <h2 class="text-xl sm:text-2xl font-bold mb-2">Двигатель</h2>
-            <p class="text-sm sm:text-base opacity-90 leading-relaxed">
-                Двигатель 1,6 литра устанавливается на современные автомобили Solaris, предлагая отличную производительность и экономичность.
-            </p>
-        </div>
-
-        <!-- Блок характеристик — справа -->
-        <div class="absolute top-4 right-4 text-white text-right space-y-6">
-            <!-- Расход топлива -->
-            <div>
-                <div class="text-3xl sm:text-4xl font-bold">6.6</div>
-                <div class="text-xs sm:text-sm opacity-90">л/100 км</div>
-                <div class="text-xs sm:text-sm opacity-90">расход топлива</div>
-            </div>
-
-            <!-- Мощность -->
-            <div>
-                <div class="text-3xl sm:text-4xl font-bold">123</div>
-                <div class="text-xs sm:text-sm opacity-90">л. с.</div>
-                <div class="text-xs sm:text-sm opacity-90">мощность двигателя</div>
-            </div>
-
-            <!-- Объем -->
-            <div>
-                <div class="text-3xl sm:text-4xl font-bold">1591</div>
-                <div class="text-xs sm:text-sm opacity-90">см³</div>
-                <div class="text-xs sm:text-sm opacity-90">объем</div>
-            </div>
-        </div>
+    <!-- Карточка: Трансмиссия -->
+    <div id="card-transmission" class="tab-content hidden">
+      <img src="../../assets/CarModelsPics/KRS/0a58b8b96627ce2bfa04fbb7adfb965fb1c0ebf5.png"
+           alt="Салон Solaris KRX с АКПП" class="w-full h-auto object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 text-white max-w-xs">
+        <h2 class="text-xl sm:text-2xl font-bold mb-2">Классический «АВТОМАТ»</h2>
+        <p class="text-sm sm:text-base opacity-90 leading-relaxed">
+          Плавность переключения и предсказуемая реакция улучшают качество вождения и ускорение на шоссе. Простота конструкции и использование проверенных технологий снижают потребность в частом обслуживании.
+        </p>
+      </div>
+      <!-- Характеристики не указаны на изображении — можно оставить пустыми или добавить по аналогии -->
+      <!-- Если нужно — можно добавить блок с "6 ступеней", "режим Sport" и т.п. -->
     </div>
 
-    <!-- Три карточки с описаниями (как на картинке) -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-
-        <!-- Карточка 1: Надёжная защита и комфорт -->
-        <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group" data-tab="protection">
-            <img src="../../assets/CarModelsPics/KRS/feeb045a30adcff298e642e2826408f4bb89db9e.png"
-                alt="Надёжная защита и комфорт" class="w-full h-64 object-cover">
-
-            <!-- Текстовый слой -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 text-white max-w-xs">
-                <h3 class="text-lg sm:text-xl font-bold mb-1">Надёжная защита и комфорт</h3>
-                <p class="text-xs sm:text-sm opacity-90 leading-tight">
-                    Оцинкованный кузов, антикоррозийные составы и восковая обработка скрытых полостей обеспечивают защиту от коррозии и механических повреждений. Дополнительная герметизация швов и стыков предотвращает скопление влаги, а дорожный просвет 160 мм гарантирует комфорт даже на неровных дорогах.
-                </p>
-            </div>
-        </div>
-
-        <!-- Карточка 2: Классический «AVTOMAT» -->
-        <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group" data-tab="transmission">
-            <img src="../../assets/CarModelsPics/KRS/feeb045a30adcff298e642e2826408f4bb89db9e.png"
-                alt="Классический «AVTOMAT»" class="w-full h-64 object-cover">
-
-            <!-- Текстовый слой -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 text-white max-w-xs">
-                <h3 class="text-lg sm:text-xl font-bold mb-1">Классический «AVTOMAT»</h3>
-                <p class="text-xs sm:text-sm opacity-90 leading-tight">
-                    Плавность переключения и предсказуемая реакция улучшают качество вождения и ускорения на шоссе. Простота конструкции и использование проверенных технологий снижают потребность в частом обслуживании.
-                </p>
-            </div>
-        </div>
-
-        <!-- Карточка 3: Высокое качество производства -->
-        <div class="relative rounded-xl overflow-hidden bg-gray-100 shadow-lg group" data-tab="production">
-            <img src="../../assets/CarModelsPics/KRS/feeb045a30adcff298e642e2826408f4bb89db9e.png"
-                alt="Высокое качество производства" class="w-full h-64 object-cover">
-
-            <!-- Текстовый слой -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-            <div class="absolute bottom-4 left-4 text-white max-w-xs">
-                <h3 class="text-lg sm:text-xl font-bold mb-1">Высокое качество производства автомобилей Solaris:</h3>
-                <p class="text-xs sm:text-sm opacity-90 leading-tight">
-                    На заводе АВТОВАЗ в Санкт-Петербурге при производстве автомобилей Solaris применяется высоко роботизированная конвейерная линия, что обеспечивает высокую эффективность и точность сборки.
-                </p>
-            </div>
-        </div>
-
+    <!-- Карточка: Адаптация к дорогам -->
+<!-- Карточка: Адаптация к дорогам -->
+<div id="card-roads" class="tab-content hidden">
+  <img src="../../assets/CarModelsPics/KRS/050514337cc6758a5b47c001cd5eb7be32acee0b.png"
+       alt="Solaris KRX на дороге" class="w-full h-auto object-cover">
+  <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+  <div class="absolute bottom-6 left-6 text-white max-w-lg">
+    <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3">Надёжная защита и комфорт</h2>
+    <p class="text-base sm:text-lg md:text-xl opacity-90 leading-relaxed">
+      Оцинкованный кузов, антигравийные составы и восковая обработка скрытых полостей обеспечивают защиту от коррозии и механических повреждений. Дополнительная герметизация швов и стыков предотвращает скопление влаги, а дорожный просвет 160 мм гарантирует комфорт даже на неровных дорогах.
+    </p>
+  </div>
+  <div class="absolute top-6 right-6 text-white text-right space-y-6">
+    <div>
+      <div class="text-4xl sm:text-5xl font-bold">160</div>
+      <div class="text-sm sm:text-base opacity-90">мм</div>
+      <div class="text-sm sm:text-base opacity-90">дорожный просвет</div>
     </div>
+    <div>
+      <div class="text-4xl sm:text-5xl font-bold">✓</div>
+      <div class="text-sm sm:text-base opacity-90">да</div>
+      <div class="text-sm sm:text-base opacity-90">оцинкованный кузов</div>
+    </div>
+    <div>
+      <div class="text-4xl sm:text-5xl font-bold">✓</div>
+      <div class="text-sm sm:text-base opacity-90">да</div>
+      <div class="text-sm sm:text-base opacity-90">герметизация швов</div>
+    </div>
+  </div>
+</div>
+
+    <!-- Карточка: Качество производства -->
+    <div id="card-quality" class="tab-content hidden">
+      <img src="../../assets/CarModelsPics/KRS/191ef0b84002f41e1d051bd6bc8d810e43d2a875.png"
+           alt="Производство Solaris на заводе" class="w-full h-auto object-cover">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+      <div class="absolute bottom-4 left-4 text-white max-w-xs">
+        <h2 class="text-xl sm:text-2xl font-bold mb-2">Высокое качество производства автомобилей Solaris:</h2>
+        <p class="text-sm sm:text-base opacity-90 leading-relaxed">
+          На заводе АГР в Санкт-Петербурге при производстве автомобилей Solaris применяется высоко роботизированная конвейерная линия, что обеспечивает высокую эффективность и точность сборки.
+        </p>
+      </div>
+      <!-- На изображении нет блока характеристик справа — можно оставить пустым -->
+    </div>
+  </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Обновляем активный таб
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('text-gray-700');
+        });
+        button.classList.add('bg-blue-600', 'text-white');
+        button.classList.remove('text-gray-700');
+
+        // Скрываем все карточки
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('active');
+        });
+
+        // Показываем нужную карточку
+        const targetTab = button.getAttribute('data-tab');
+        const targetCard = document.getElementById(`card-${targetTab}`);
+        if (targetCard) {
+          targetCard.classList.remove('hidden');
+          targetCard.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-content {
+    position: relative;
+    width: 100%;
+  }
+  .tab-content.hidden {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Обновляем активный таб
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('text-gray-700');
+        });
+        button.classList.add('bg-blue-600', 'text-white');
+        button.classList.remove('text-gray-700');
+
+        // Скрываем все карточки
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('active');
+        });
+
+        // Показываем нужную карточку
+        const targetTab = button.getAttribute('data-tab');
+        const targetCard = document.getElementById(`card-${targetTab}`);
+        if (targetCard) {
+          targetCard.classList.remove('hidden');
+          targetCard.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-content {
+    position: relative;
+    width: 100%;
+  }
+  .tab-content.hidden {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Обновляем активный таб
+        tabButtons.forEach(btn => {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('text-gray-700');
+        });
+        button.classList.add('bg-blue-600', 'text-white');
+        button.classList.remove('text-gray-700');
+
+        // Скрываем все карточки
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+          content.classList.remove('active');
+        });
+
+        // Показываем нужную карточку
+        const targetTab = button.getAttribute('data-tab');
+        const targetCard = document.getElementById(`card-${targetTab}`);
+        if (targetCard) {
+          targetCard.classList.remove('hidden');
+          targetCard.classList.add('active');
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .tab-content {
+    position: relative;
+    width: 100%;
+  }
+  .tab-content.hidden {
+    display: none;
+  }
+  .tab-content.active {
+    display: block;
+  }
+</style>
 
 
         <section>
