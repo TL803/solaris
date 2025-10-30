@@ -33,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.remove('overflow-hidden');
         currentImages = [];
         currentIndex = 0;
+        console.log('Модалка закрыта');
     }
 
     function showNext() {
@@ -47,13 +48,29 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.src = currentImages[currentIndex];
     }
 
-    closeModalBtn.addEventListener('click', closeModal);
-    prevBtn.addEventListener('click', showPrev);
-    nextBtn.addEventListener('click', showNext);
-
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+    closeModalBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        closeModal();
     });
+    
+    prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showPrev();
+    });
+    
+    nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        showNext();
+    });
+
+    // Закрытие модалки по клику на фон
+// Закрытие модалки по клику на фон
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        console.log('Клик по фону - закрываем модалку');
+        closeModal();
+    }
+});
 
     document.addEventListener('keydown', (e) => {
         if (modal.classList.contains('hidden')) return;

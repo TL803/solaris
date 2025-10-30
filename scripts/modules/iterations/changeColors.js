@@ -37,7 +37,7 @@ colorContainer.addEventListener('click', (e) => {
     activeColorElem = e.target;
 
     const selectedColor = e.target.dataset.color;
-    carImage.src = `../assets/auto/${selectedColor}`;
+    carImage.src = `../../assets/auto/${selectedColor}`;
 });
 
 // Активировать первый цвет
