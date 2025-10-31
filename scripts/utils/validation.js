@@ -1,99 +1,107 @@
-document.querySelectorAll('input[data-validate="phone"]').forEach(input => {
-    const mask = IMask(input, {
-        mask: '+{7} (000) 000-00-00',
-        lazy: false
-    });
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('[data-car-form]');
 
-    input.addEventListener('paste', function (e) {
-        e.preventDefault();
+    // === ДИНАМИЧЕСКОЕ СОЗДАНИЕ МОДАЛКИ ===
+    let modal = document.getElementById('success-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'success-modal';
+        modal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden p-4';
+        modal.innerHTML = `
+            <div class="bg-[#F0F0F0] rounded-xl w-full max-w-3xl text-center shadow-xl flex flex-col justify-center items-center p-6 md:p-10">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-light text-gray-800 mb-3 md:mb-4">
+                    Ваша заявка успешно отправлена!
+                </h2>
+                <p class="text-base md:text-lg font-light text-gray-600 mb-6 md:mb-8 px-2">
+                    Мы уже готовим для вас персональное предложение.<br>
+                    Совсем скоро наш менеджер свяжется с вами, чтобы обсудить детали и помочь приблизить момент, когда ключи от нового автомобиля Solaris окажутся в ваших руках.
+                </p>
+                <button id="close-modal" class="w-full max-w-xs py-3 px-6 text-base font-normal bg-gradient-to-r from-blue-900 to-blue-500 text-white rounded-lg hover:from-blue-800 hover:to-blue-400 transition">
+                    Отлично
+                </button>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
 
-        const pastedText = (e.clipboardData || window.clipboardData).getData('text') || '';
-        let digits = pastedText.replace(/\D/g, '');
-
-        if (digits.length > 0 && (digits[0] === '7' || digits[0] === '8')) {
-            digits = digits.substring(1);
-        }
-
-        digits = digits.substring(0, 10);
-
-        mask.unmaskedValue = digits;
-
-        toggleError(input, false);
-    });
-});
-
-document.querySelectorAll('[data-car-form]').forEach(form => {
-    form.addEventListener('submit', function (e) {
-        let isValid = true;
-
-        this.querySelectorAll('input[data-validate="name"]').forEach(input => {
-            const value = input.value.trim();
-            const valid = /^[а-яА-ЯёЁa-zA-Z\s]{2,}$/.test(value);
-            toggleError(input, !valid);
-            if (!valid) isValid = false;
+    // Маска для телефона
+    const phoneInput = document.querySelector('input[data-validate="phone"]');
+    let mask = null;
+    if (phoneInput) {
+        mask = IMask(phoneInput, {
+            mask: '+{7} (000) 000-00-00'
         });
+    }
 
-        this.querySelectorAll('input[data-validate="phone"]').forEach(input => {
-            const unmasked = input.value.replace(/\D/g, '');
-            const valid = unmasked.length === 11 && unmasked.startsWith('7');
-            toggleError(input, !valid);
-            if (!valid) isValid = false;
-        });
-
-        this.querySelectorAll('input[data-validate="required"][type="checkbox"]').forEach(input => {
-            const valid = input.checked;
-            toggleError(input, !valid);
-            if (!valid) isValid = false;
-        });
-
-        if (!isValid) {
+    if (form) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.warn('Форма содержит ошибки');
+
+            const nameInput = document.querySelector('input[data-validate="name"]');
+            const phoneInput = document.querySelector('input[data-validate="phone"]');
+            const checkbox = document.querySelector('input[data-validate="required"]');
+
+            let isValid = true;
+
+            // Валидация имени
+            if (!nameInput.value.trim()) {
+                isValid = false;
+                nameInput.classList.add('border-red-500');
+            } else {
+                nameInput.classList.remove('border-red-500');
+            }
+
+            // Валидация телефона
+            const phoneValue = phoneInput.value.replace(/\D/g, '');
+            if (phoneValue.length !== 11 || !phoneValue.startsWith('7')) {
+                isValid = false;
+                phoneInput.classList.add('border-red-500');
+            } else {
+                phoneInput.classList.remove('border-red-500');
+            }
+
+            // Валидация чекбокса
+            if (!checkbox.checked) {
+                isValid = false;
+                checkbox.parentElement.classList.add('border-red-500');
+            } else {
+                checkbox.parentElement.classList.remove('border-red-500');
+            }
+
+            if (isValid) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+
+                form.reset();
+                if (phoneInput && mask) {
+                    mask.unmaskedValue = '';
+                }
+
+                nameInput.classList.remove('border-red-500');
+                phoneInput.classList.remove('border-red-500');
+                checkbox.parentElement.classList.remove('border-red-500');
+            }
+        });
+    }
+
+    function closeModal() {
+        modal.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+    }
+
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.id === 'close-modal') {
+            closeModal();
         }
     });
-});
 
-function toggleError(input, hasError) {
-    const wrapper = input.type === 'checkbox'
-        ? input.closest('label')?.parentElement || input.parentElement
-        : input.closest('div') || input.parentElement;
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) closeModal();
+    });
 
-    let errorEl = wrapper.querySelector('.validation-error');
-
-    if (hasError) {
-        if (!errorEl) {
-            errorEl = document.createElement('p');
-            errorEl.className = 'validation-error text-red-400 text-sm mt-1';
-            if (input.dataset.validate === 'name') {
-                errorEl.textContent = 'Имя должно содержать минимум 2 буквы и не включать цифры';
-            } else if (input.dataset.validate === 'phone') {
-                errorEl.textContent = 'Пожалуйста, введите корректный номер телефона';
-            } else if (input.dataset.validate === 'required' && input.type === 'checkbox') {
-                errorEl.textContent = 'Необходимо согласие на обработку персональных данных';
-            }
-            wrapper.appendChild(errorEl);
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            closeModal();
         }
-        if (input.type === 'checkbox') {
-            const label = input.closest('label');
-            if (label) label.classList.add('border-red-500');
-        } else {
-            input.classList.add('border-red-500');
-        }
-    } else {
-        if (errorEl) errorEl.remove();
-        if (input.type === 'checkbox') {
-            const label = input.closest('label');
-            if (label) label.classList.remove('border-red-500');
-        } else {
-            input.classList.remove('border-red-500');
-        }
-    }
-}
-
-document.querySelectorAll('input[data-validate]').forEach(input => {
-    if (input.type === 'checkbox') {
-        input.addEventListener('change', () => toggleError(input, false));
-    } else {
-        input.addEventListener('focus', () => toggleError(input, false));
-    }
+    });
 });
