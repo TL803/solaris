@@ -2,6 +2,8 @@
 
 import { CallbackModal } from '../dialogs/callback/feedback.js';
 import { BookingModal } from '../dialogs/callback/bookAuto.js';
+import { CreditOfferModal } from '../dialogs/callback/loan.js';
+import { TradeInOfferModal } from '../dialogs/callback/tradein.js';
 
 export class PopupFactory {
     static createModal(modalType, options = {}) {
@@ -27,6 +29,10 @@ export class PopupFactory {
                 return CallbackModal;
             case 'booking':
                 return BookingModal;
+            case 'loan':
+                return CreditOfferModal
+            case 'tradein':
+                return TradeInOfferModal
             default:
                 return null;
         }

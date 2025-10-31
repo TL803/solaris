@@ -1,6 +1,14 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('[data-car-form]');
 
+    // === ОГРАНИЧЕНИЕ ВВОДА ТОЛЬКО БУКВ В ПОЛЕ ФИО ===
+    const nameInput = document.querySelector('input[data-validate="name"]');
+    if (nameInput) {
+        nameInput.addEventListener('input', function () {
+            this.value = this.value.replace(/[^а-яА-ЯёЁa-zA-Z\s\-']/g, '');
+        });
+    }
+
     // === ДИНАМИЧЕСКОЕ СОЗДАНИЕ МОДАЛКИ ===
     let modal = document.getElementById('success-modal');
     if (!modal) {

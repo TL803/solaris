@@ -316,14 +316,14 @@
                             <!-- Контакты -->
                             <form data-car-form class="space-y-4">
                                 <h2 class="text-lg font-medium text-[#282624]">Введите ваши контакты</h2>
-                                <input type="text" placeholder="ФИО" data-validate="name"
+                                <input pattern="^[A-Za-zА-Яа-яЁё\s]+$" type="text" placeholder="ФИО"  data-validate="name" 
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
                                 <input type="text" placeholder="Телефон" data-validate="phone"
                                     class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-black" />
 
                                 <div class="flex items-center space-x-3">
                                     <label class="custom-checkbox-square">
-                                        <input type="checkbox" data-validate="required" />
+                                        <input type="checkbox" data-validate="required" checked/>
                                         <span class="checkmark">✓</span>
                                     </label>
                                     <span class="text-sm text-gray-300 leading-relaxed">
@@ -598,18 +598,13 @@
 
     <script src="https://unpkg.com/imask@7.0.0/dist/imask.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="../scripts/modules/iterations/car.js"></script>
     <script src="../scripts/components/sliders/bannerSlider.js"></script>
     <script src="../scripts/components/modals/dialogs/dropdown/dropModelsDown.js"></script>
-    <script src="../scripts/modules/show/showCar.js"></script>
     <script src="../scripts/components/sliders/range/creditBlock.js" type="module"></script>
     <script src="../scripts/modules/navigation/burger.js"></script>
-    <script src="../scripts/components/modals/dialog/yourData.js"></script>
     <script src="../scripts/utils/validation.js"></script>
 
     <script src="../scripts/components/modals/widget/feedback.js"></script>
-    <script src="../scripts/components/modals/dialog/FortuneWheel.js"></script>
-    <!-- <script src="../scripts/components/sliders/range/credit/CarCreditCalculator.js"></script> -->
     <script src="../scripts/modules/show/filters/showCar.js"></script>
     <script src="../scripts/modules/blockInput.js"></script>
     <script src="../scripts/modules/iterations/changeColors.js"></script>
