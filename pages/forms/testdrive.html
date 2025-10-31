@@ -308,94 +308,9 @@
     <script src="https://unpkg.com/imask@7.0.0/dist/imask.min.js"></script>
 
     <script src="../../scripts/utils/validation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('[data-car-form]');
-            const modal = document.getElementById('success-modal');
-            const closeButton = document.getElementById('close-modal');
-
-            // Маска для телефона
-            const phoneInput = document.querySelector('input[data-validate="phone"]');
-            if (phoneInput) {
-                IMask(phoneInput, {
-                    mask: '+{7} (000) 000-00-00'
-                });
-            }
-
-            if (form) {
-                form.addEventListener('submit', function(e) {
-                    e.preventDefault();
-
-                    const nameInput = document.querySelector('input[data-validate="name"]');
-                    const phoneInput = document.querySelector('input[data-validate="phone"]');
-                    const checkbox = document.querySelector('input[data-validate="required"]');
-
-                    let isValid = true;
-
-                    // Валидация имени
-                    if (!nameInput.value.trim()) {
-                        isValid = false;
-                        nameInput.classList.add('border-red-500');
-                    } else {
-                        nameInput.classList.remove('border-red-500');
-                    }
-
-                    // Валидация телефона
-                    if (!phoneInput.value || phoneInput.value.includes('_')) {
-                        isValid = false;
-                        phoneInput.classList.add('border-red-500');
-                    } else {
-                        phoneInput.classList.remove('border-red-500');
-                    }
-
-                    // Валидация чекбокса
-                    if (!checkbox.checked) {
-                        isValid = false;
-                        checkbox.parentElement.classList.add('border-red-500');
-                    } else {
-                        checkbox.parentElement.classList.remove('border-red-500');
-                    }
-
-                    if (isValid) {
-                        // Показать модалку
-                        modal.classList.remove('hidden');
-                        document.body.style.overflow = 'hidden';
-
-                        // Очистить форму
-                        form.reset();
-                        if (phoneInput) phoneInput.value = ''; // IMask не сбрасывается через reset()
-
-                        // Сброс ошибок
-                        nameInput.classList.remove('border-red-500');
-                        phoneInput.classList.remove('border-red-500');
-                        checkbox.parentElement.classList.remove('border-red-500');
-                    }
-                });
-            }
-
-            // Закрытие модалки
-            function closeModal() {
-                modal.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }
-
-            if (closeButton) {
-                closeButton.addEventListener('click', closeModal);
-            }
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
-            });
-
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-                    closeModal();
-                }
-            });
-        });
-    </script>
 
     <script src="../../scripts/modules/navigation/burger.js"></script>
+    <script src="../../scripts/components/modals/dialogs/dropdown/dropModelsDown.js"></script>
 
 </body>
 

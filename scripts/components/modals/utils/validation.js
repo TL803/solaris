@@ -24,11 +24,28 @@ export class FormValidator {
 
   bindEvents() {
     this.form.addEventListener('submit', (e) => this.handleSubmit(e));
-    this.fullnameInput?.addEventListener('input', () => this.clearError(this.fullnameInput));
+
+    if (this.fullnameInput) {
+      this.fullnameInput.addEventListener('input', (e) => {
+        this.filterNameInput(e);
+        this.clearError(this.fullnameInput);
+      });
+    }
+
     this.phoneInput?.addEventListener('input', () => this.clearError(this.phoneInput));
     this.consentCheckbox?.addEventListener('change', () => {
       if (this.consentCheckbox.checked) this.clearError(this.consentCheckbox);
     });
+  }
+
+  // Оставляем только буквы, пробелы и дефисы (можно адаптировать под нужды)
+  filterNameInput(event) {
+    let value = event.target.value;
+    // Разрешаем буквы (кириллица и латиница), пробелы и дефисы
+    const filtered = value.replace(/[^a-zA-Zа-яА-ЯёЁ\s\-]/g, '');
+    if (value !== filtered) {
+      event.target.value = filtered;
+    }
   }
 
   handleSubmit(e) {
@@ -41,8 +58,12 @@ export class FormValidator {
   validate() {
     let isValid = true;
 
-    if (!this.fullnameInput?.value.trim()) {
+    const nameValue = this.fullnameInput?.value.trim() || '';
+    if (!nameValue) {
       this.showError(this.fullnameInput, 'Пожалуйста, укажите ваше ФИО');
+      isValid = false;
+    } else if (!/^[a-zA-Zа-яА-ЯёЁ\s\-]+$/.test(nameValue)) {
+      this.showError(this.fullnameInput, 'ФИО должно содержать только буквы, пробелы или дефисы');
       isValid = false;
     } else {
       this.clearError(this.fullnameInput);
