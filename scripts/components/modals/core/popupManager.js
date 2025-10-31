@@ -1,3 +1,5 @@
+// core/popupManager.js
+
 import { ModalBackdrop } from '../templates/base/modalBackdrop.js';
 import { PopupFactory } from './popupFactory.js';
 import { Dom } from '../../../utils/Dom.js';
@@ -6,8 +8,6 @@ export class PopupManager {
   constructor() {
     this.currentModal = null;
     this.cleanupEscape = null;
-    this.autoPopupTimer = null;
-    this.autoPopupInterval = 150000; // 2.5 минуты
     this.init();
   }
 
@@ -22,31 +22,7 @@ export class PopupManager {
       }
     });
 
-    this.startAutoPopup();
-  }
-
-  startAutoPopup() {
-    this.autoPopupTimer = setInterval(() => {
-      this.openAutoPopup();
-    }, this.autoPopupInterval);
-  }
-
-  openAutoPopup() {
-    if (this.currentModal) return;
-
-    const popupShown = sessionStorage.getItem('specialOfferShown');
-    if (popupShown) return;
-
-    console.log('Автоматическое открытие модалки SpecialOffer');
-    this.open('special-offer', {});
-    sessionStorage.setItem('specialOfferShown', 'true');
-  }
-
-  stopAutoPopup() {
-    if (this.autoPopupTimer) {
-      clearInterval(this.autoPopupTimer);
-      this.autoPopupTimer = null;
-    }
+    // Автоматический попап полностью удалён
   }
 
   parseModalParams(trigger) {
@@ -85,7 +61,6 @@ export class PopupManager {
     backdrop.element.appendChild(modalElement);
     document.body.appendChild(backdrop.element);
 
-    // ✅ ПЕРЕДАЁМ НАСТОЯЩИЙ closeCallback!
     if (typeof modalContent.onInit === 'function') {
       modalContent.onInit(modalElement, () => this.close(), params);
     }
@@ -126,7 +101,6 @@ export class PopupManager {
   }
 
   destroy() {
-    this.stopAutoPopup();
     this.close();
   }
 }

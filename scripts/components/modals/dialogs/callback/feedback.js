@@ -44,6 +44,7 @@ export const CallbackModal = {
                   id="consent" 
                   class="sr-only" 
                   required
+                  checked
                 >
                 <div class="checkbox-box w-6 h-6 bg-white border border-gray-300 rounded cursor-pointer flex items-center justify-center">
                   <svg class="hidden w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -1,3 +1,5 @@
+// core/popupFactory.js
+
 import { CallbackModal } from '../dialogs/callback/feedback.js';
 import { BookingModal } from '../dialogs/callback/bookAuto.js';
 

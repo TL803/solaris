@@ -3,15 +3,15 @@ import { FormValidator } from '../../utils/validation.js';
 export const BookingModal = {
   template: () => `
     <div 
-      style="background-image: url('../assets/popup/car-booking-bg.jpg');"
+      style="background-image: url('../assets/popup/1247d8f285138a450077ef4ce1500f74be1add6f (1).png'); background-size: cover; background-position: center;"
       class="popup__content popup__content--booking bg-cover bg-center rounded-xl shadow-lg w-full max-w-[646px] md:max-w-[768px] mx-auto px-6 md:px-10 py-6 md:py-8 relative"
     >
       <!-- Затемняющий слой -->
-      <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
+      <div class="absolute inset-0 bg-black bg-opacity-50 rounded-xl"></div>
 
       <div class="relative z-10">
-        <h2 class="popup__title text-center text-2xl md:text-3xl font-bold mb-3 md:mb-4 text-white">Забронировать автомобиль</h2>
-        <p class="popup__subtitle text-center text-base md:text-lg text-white mb-6 opacity-90">
+        <h2 class="text-center text-2xl md:text-3xl font-bold mb-2 md:mb-3 text-white">Забронировать автомобиль</h2>
+        <p class="text-center text-sm md:text-base text-white mb-6 opacity-90 leading-tight">
           Введите ваши данные, чтобы закрепить за собой выбранное авто.<br>
           Наш менеджер свяжется с вами в ближайшее время<br>
           для подтверждения брони.
@@ -19,21 +19,21 @@ export const BookingModal = {
 
         <form class="booking-form" novalidate>
           <div class="mb-4">
-            <label class="block text-sm md:text-base font-medium mb-1 text-white">ФИО</label>
+            <label class="block text-sm font-medium mb-1 text-white">ФИО</label>
             <input 
               type="text" 
               name="name" 
               placeholder="Иванов Иван Иванович" 
-              class="w-full px-4 py-3 md:py-4 border border-white/30 bg-white/80 text-gray-900 placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+              class="w-full px-4 py-3 border border-white/30 bg-white/20 backdrop-blur-sm text-white placeholder-white/70 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             >
           </div>
           <div class="mb-4">
-            <label class="block text-sm md:text-base font-medium mb-1 text-white">Телефон</label>
+            <label class="block text-sm font-medium mb-1 text-white">Телефон</label>
             <input 
               type="tel" 
               name="telephone" 
               placeholder="8 XXX XXX XX XX" 
-              class="w-full px-4 py-3 md:py-4 border border-white/30 bg-white/80 text-gray-900 placeholder-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"
+              class="w-full px-4 py-3 border border-white/30 bg-white/20 backdrop-blur-sm text-white placeholder-white/70 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
             >
           </div>
           <div class="mb-6 flex items-start">
@@ -52,16 +52,16 @@ export const BookingModal = {
                   </svg>
                 </div>
               </div>
-              <label for="consent" class="text-[15px] md:text-base text-white opacity-90 leading-tight">
-                Согласен с <a href="#" class="underline hover:text-blue-300">политикой обработки персональных данных</a>
+              <label for="consent" class="text-xs md:text-sm text-white opacity-90 leading-tight">
+                Согласен с политикой обработки персональных данных
               </label>
             </div>
           </div>
           <button 
             type="submit" 
-            class="w-full bg-blue-600 text-white py-3.5 md:py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-base md:text-lg"
+            class="w-full bg-blue-600 text-white py-3.5 rounded-lg hover:bg-blue-700 transition-colors font-medium text-base"
           >
-            ЗАБРОНИРОВАТЬ
+            Забронировать
           </button>
         </form>
       </div>
@@ -76,7 +76,7 @@ export const BookingModal = {
     const checkboxBox = form.querySelector('.checkbox-box');
     const checkboxSvg = form.querySelector('.checkbox-box svg');
 
-    // Обновление внешнего вида при клике
+    // Обновление стилей чекбокса при клике
     checkboxBox.addEventListener('click', () => {
       checkboxInput.checked = !checkboxInput.checked;
       if (checkboxInput.checked) {
@@ -92,7 +92,7 @@ export const BookingModal = {
       }
     });
 
-    // Поддержка клавиатуры и программного изменения состояния
+    // Обновление стилей при изменении состояния через JS
     checkboxInput.addEventListener('change', () => {
       if (checkboxInput.checked) {
         checkboxSvg.classList.remove('hidden');
@@ -107,21 +107,18 @@ export const BookingModal = {
       }
     });
 
-    // Успех после валидации и отправки
+    // Успешная отправка формы
     const handleSuccess = () => {
       const container = form.closest('.popup__content');
       if (container) {
         container.innerHTML = `
-          <div class="absolute inset-0 bg-black bg-opacity-40 rounded-xl"></div>
+          <div class="absolute inset-0 bg-black bg-opacity-50 rounded-xl"></div>
           <div class="relative z-10 text-center py-8 md:py-10">
             <h3 class="text-white text-2xl md:text-3xl font-bold mb-6">
-              Автомобиль забронирован!
+              Ваша заявка успешно отправлена!
             </h3>
-            <p class="text-white text-base md:text-lg opacity-90 mb-6">
-              Наши менеджеры свяжутся с вами в течение 15 минут.
-            </p>
-            <button type="button" class="w-full bg-blue-600 text-white py-3.5 md:py-4 rounded-lg hover:bg-blue-700 transition-colors font-medium text-base md:text-lg">
-              ОТЛИЧНО
+            <button type="button" class="w-full bg-blue-600 text-white py-3.5 rounded-lg hover:bg-blue-700 transition-colors font-medium text-base">
+              отлично
             </button>
           </div>
         `;
